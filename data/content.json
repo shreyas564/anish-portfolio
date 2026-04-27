@@ -1,0 +1,229 @@
+{
+  "hero": {
+    "name": "Anish Shriram Paranjape",
+    "tagline": "[Add your tagline or brief introduction here — describe your passion for education and learning]",
+    "academicYear": "[Academic Year]"
+  },
+  "about": {
+    "name": "[Student Name]",
+    "paragraph1": "[Add your introduction paragraph here — talk about your educational journey, your goals in education, and what drives you as a future educator.]",
+    "paragraph2": "[Add a second paragraph about your interests, skills, and what you hope to achieve through your B.Ed program.]",
+    "profileImage": "",
+    "highlights": [
+      {
+        "label": "B.Ed Student",
+        "desc": "[Add detail here]"
+      },
+      {
+        "label": "Second Semester",
+        "desc": "[Add detail here]"
+      },
+      {
+        "label": "Passionate Learner",
+        "desc": "[Add detail here]"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Digital Newsletter",
+      "desc": "[Add a brief description of your digital newsletter project here]",
+      "href": "#newsletter"
+    },
+    {
+      "title": "Digital Quiz",
+      "desc": "[Add a brief description of your digital quiz project here]",
+      "href": "#quiz"
+    },
+    {
+      "title": "Digital Safety Poster/Video",
+      "desc": "[Add a brief description of your digital safety project here]",
+      "href": "#safety"
+    },
+    {
+      "title": "MOOC Analysis",
+      "desc": "[Add a brief description of your MOOC analysis project here]",
+      "href": "#mooc"
+    },
+    {
+      "title": "IKS Project",
+      "desc": "[Add a brief description of your IKS project here]",
+      "href": "#iks"
+    }
+  ],
+  "newsletter": {
+    "items": [
+      {
+        "title": "[Page 1 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      },
+      {
+        "title": "[Page 2 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      },
+      {
+        "title": "[Page 3 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      },
+      {
+        "title": "[Page 4 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      },
+      {
+        "title": "[Page 5 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      },
+      {
+        "title": "[Page 6 Title]",
+        "description": "[Add description here]",
+        "image": ""
+      }
+    ]
+  },
+  "quiz": {
+    "title": "[Quiz Title]",
+    "platform": "[Add quiz platform name here]",
+    "embedUrl": "",
+    "externalUrl": "",
+    "stats": [
+      "[Total Questions]",
+      "[Quiz Duration]",
+      "[Target Audience]"
+    ]
+  },
+  "safety": {
+    "posterDescription": "[Add poster description]",
+    "posterImage": "",
+    "videoDescription": "[Add video description]",
+    "videoUrl": "",
+    "videoDuration": "[Video Duration]",
+    "videoFormat": "[Video Format]"
+  },
+  "mooc": {
+    "timeline": [
+      {
+        "step": "01",
+        "title": "[MOOC Platform Name]",
+        "desc": "[Add course name and details here]",
+        "status": "[Status]"
+      },
+      {
+        "step": "02",
+        "title": "[Course Module 1]",
+        "desc": "[Add module description and key learnings here]",
+        "status": "[Status]"
+      },
+      {
+        "step": "03",
+        "title": "[Course Module 2]",
+        "desc": "[Add module description and key learnings here]",
+        "status": "[Status]"
+      },
+      {
+        "step": "04",
+        "title": "[Analysis & Reflection]",
+        "desc": "[Add your analysis of the MOOC experience here]",
+        "status": "[Status]"
+      }
+    ],
+    "takeaways": "[Add your overall analysis, key takeaways, and reflections from the MOOC experience here.]"
+  },
+  "iks": {
+    "slides": [
+      {
+        "title": "[Slide 1 Title]",
+        "desc": "[Add content for slide 1 here]",
+        "image": ""
+      },
+      {
+        "title": "[Slide 2 Title]",
+        "desc": "[Add content for slide 2 here]",
+        "image": ""
+      },
+      {
+        "title": "[Slide 3 Title]",
+        "desc": "[Add content for slide 3 here]",
+        "image": ""
+      },
+      {
+        "title": "[Slide 4 Title]",
+        "desc": "[Add content for slide 4 here]",
+        "image": ""
+      },
+      {
+        "title": "[Slide 5 Title]",
+        "desc": "[Add content for slide 5 here]",
+        "image": ""
+      }
+    ]
+  },
+  "media": {
+    "videoTitle": "[Video Title]",
+    "videoDescription": "[Add video description]",
+    "videoUrl": "",
+    "gallery": [
+      {
+        "image": "",
+        "caption": ""
+      },
+      {
+        "image": "",
+        "caption": ""
+      },
+      {
+        "image": "",
+        "caption": ""
+      },
+      {
+        "image": "",
+        "caption": ""
+      },
+      {
+        "image": "",
+        "caption": ""
+      },
+      {
+        "image": "",
+        "caption": ""
+      }
+    ]
+  },
+  "downloads": [
+    {
+      "title": "Download Poster",
+      "desc": "[Digital Safety Poster — PDF/Image format]",
+      "file": ""
+    },
+    {
+      "title": "Download Newsletter",
+      "desc": "[Digital Newsletter — PDF format]",
+      "file": ""
+    },
+    {
+      "title": "Download Report",
+      "desc": "[Complete Portfolio Report — PDF format]",
+      "file": ""
+    }
+  ],
+  "footer": {
+    "name": "[Student Name]",
+    "course": "B.Ed Second Semester",
+    "college": "[College Name]",
+    "year": "[Year]",
+    "socials": {
+      "github": "",
+      "linkedin": "",
+      "twitter": "",
+      "instagram": "",
+      "email": ""
+    }
+  },
+  "admin": {
+    "password": "admin123"
+  }
+}
