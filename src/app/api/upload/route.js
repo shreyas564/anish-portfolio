@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import { Redis } from '@upstash/redis';
+import { getPortfolioContent } from '@/lib/redis';
 import { put } from '@vercel/blob';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads');
@@ -13,26 +13,10 @@ function ensureDir(dir) {
   }
 }
 
-function getRedisClient() {
-  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-  if (url && token) {
-    return new Redis({ url, token });
-  }
-  return null;
-}
-
 async function getAdminPassword() {
-  const redis = getRedisClient();
-  if (redis) {
-    try {
-      const kvContent = await redis.get('portfolio_content');
-      if (kvContent && kvContent.admin?.password) {
-        return kvContent.admin.password;
-      }
-    } catch (e) {
-      console.error('Error reading from Redis, falling back to local file:', e);
-    }
+  const redisContent = await getPortfolioContent();
+  if (redisContent && redisContent.admin?.password) {
+    return redisContent.admin.password;
   }
   
   const contentPath = path.join(process.cwd(), 'data', 'content.json');

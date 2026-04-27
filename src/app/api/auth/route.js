@@ -1,30 +1,14 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import { Redis } from '@upstash/redis';
+import { getPortfolioContent, setPortfolioContent } from '@/lib/redis';
 
 const CONTENT_PATH = path.join(process.cwd(), 'data', 'content.json');
 
-function getRedisClient() {
-  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-  if (url && token) {
-    return new Redis({ url, token });
-  }
-  return null;
-}
-
 async function getContent() {
-  const redis = getRedisClient();
-  if (redis) {
-    try {
-      const kvContent = await redis.get('portfolio_content');
-      if (kvContent) {
-        return typeof kvContent === 'string' ? JSON.parse(kvContent) : kvContent;
-      }
-    } catch (e) {
-      console.error('Error reading from Redis, falling back to local file:', e);
-    }
+  const redisContent = await getPortfolioContent();
+  if (redisContent) {
+    return redisContent;
   }
   
   const raw = fs.readFileSync(CONTENT_PATH, 'utf-8');
@@ -44,10 +28,8 @@ export async function POST(request) {
 
     content.admin.password = newPassword;
 
-    const redis = getRedisClient();
-    if (redis) {
-      await redis.set('portfolio_content', content);
-    } else {
+    const savedToRedis = await setPortfolioContent(content);
+    if (!savedToRedis) {
       fs.writeFileSync(CONTENT_PATH, JSON.stringify(content, null, 2), 'utf-8');
     }
 
