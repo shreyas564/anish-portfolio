@@ -1,67 +1,56 @@
 'use client';
 import { motion } from 'framer-motion';
 import Section from '../Section';
-import Card from '../Card';
-import { HiNewspaper, HiQuestionMarkCircle, HiShieldCheck, HiChartBar, HiGlobe } from 'react-icons/hi';
+import { HiNewspaper, HiQuestionMarkCircle, HiShieldCheck, HiChartBar, HiGlobe, HiArrowRight } from 'react-icons/hi';
 
-const iconMap = {
-  '#newsletter': HiNewspaper,
-  '#quiz': HiQuestionMarkCircle,
-  '#safety': HiShieldCheck,
-  '#mooc': HiChartBar,
-  '#iks': HiGlobe,
-};
-const colorMap = {
-  '#newsletter': 'from-blue-500 to-indigo-600',
-  '#quiz': 'from-purple-500 to-pink-600',
-  '#safety': 'from-emerald-500 to-teal-600',
-  '#mooc': 'from-orange-500 to-red-600',
-  '#iks': 'from-cyan-500 to-blue-600',
-};
+const iconMap = { '#newsletter': HiNewspaper, '#quiz': HiQuestionMarkCircle, '#safety': HiShieldCheck, '#mooc': HiChartBar, '#iks': HiGlobe };
+const bgColors = { '#newsletter': '#EBF4FF', '#quiz': '#F3E8FF', '#safety': '#ECFDF5', '#mooc': '#FFF7ED', '#iks': '#EBF4FF' };
+const accentColors = { '#newsletter': '#0058BE', '#quiz': '#7C3AED', '#safety': '#059669', '#mooc': '#EA580C', '#iks': '#0058BE' };
 
 export default function ProjectsOverview({ data }) {
   const defaults = [
-    { title: 'Digital Newsletter', desc: '[Add description]', href: '#newsletter' },
-    { title: 'Digital Quiz', desc: '[Add description]', href: '#quiz' },
-    { title: 'Digital Safety Poster/Video', desc: '[Add description]', href: '#safety' },
-    { title: 'MOOC Analysis', desc: '[Add description]', href: '#mooc' },
-    { title: 'IKS Project', desc: '[Add description]', href: '#iks' },
+    { title: 'Digital Newsletter', desc: 'A comprehensive educational newsletter with curated content', href: '#newsletter' },
+    { title: 'Digital Quiz', desc: 'Interactive assessment tool for educational evaluation', href: '#quiz' },
+    { title: 'Digital Safety Poster/Video', desc: 'Awareness resources promoting digital safety', href: '#safety' },
+    { title: 'MOOC Analysis', desc: 'Critical review of massive open online courses', href: '#mooc' },
+    { title: 'IKS Project', desc: 'Integrating indigenous knowledge systems', href: '#iks' },
   ];
   const projects = data || defaults;
 
   return (
-    <Section id="projects" title="My Projects" subtitle="A showcase of academic work and digital creations from B.Ed Second Semester">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
+    <Section id="projects" title="Featured Case Studies" subtitle="A showcase of academic work and digital creations from B.Ed Second Semester">
+      <div className="flex gap-6 overflow-x-auto pb-6 snap-x" style={{ scrollbarWidth: 'none' }}>
         {projects.map((project, i) => {
           const Icon = iconMap[project.href] || HiNewspaper;
-          const color = colorMap[project.href] || 'from-indigo-500 to-purple-600';
+          const bg = bgColors[project.href] || '#EBF4FF';
+          const accent = accentColors[project.href] || '#0058BE';
           return (
-            <Card key={i} delay={i * 0.1} className="relative overflow-hidden" style={{ display: 'flex', flexDirection: 'column' }}>
-              {/* Top gradient accent */}
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${color}`} style={{ opacity: 0.6 }} />
-
-              {/* Icon */}
-              <div className={`bg-gradient-to-br ${color}`} style={{ width: 56, height: 56, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20, boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}>
-                <Icon style={{ width: 28, height: 28, color: 'white' }} />
+            <motion.a
+              key={i}
+              href={project.href}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="glass-card snap-center shrink-0 overflow-hidden group"
+              style={{ minWidth: 300, maxWidth: 400, flex: '1 0 300px', textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
+            >
+              {/* Color header */}
+              <div className="h-44 flex items-center justify-center" style={{ background: bg }}>
+                <Icon style={{ width: 56, height: 56, color: accent, opacity: 0.5 }} />
               </div>
-
-              {/* Content */}
-              <h3 style={{ fontSize: '1.125rem', fontWeight: 700, fontFamily: "'Outfit', sans-serif", color: 'var(--text-primary)', marginBottom: 8 }}>
-                {project.title}
-              </h3>
-              <p style={{ fontSize: '0.875rem', opacity: 0.6, lineHeight: 1.6, marginBottom: 20, flex: 1 }}>
-                {project.desc}
-              </p>
-
-              {/* Button */}
-              <motion.a
-                href={project.href}
-                whileHover={{ x: 4 }}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '0.875rem', fontWeight: 600, color: '#6366f1', textDecoration: 'none' }}
-              >
-                View Details <span>→</span>
-              </motion.a>
-            </Card>
+              <div className="p-6 flex-1 flex flex-col">
+                <span className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: accent }}>
+                  Case Study {String(i + 1).padStart(2, '0')}
+                </span>
+                <h4 className="text-lg font-bold tracking-tight mb-2" style={{ color: 'var(--navy-deep)' }}>{project.title}</h4>
+                <p className="text-sm leading-relaxed flex-1 mb-4" style={{ color: 'var(--text-muted)' }}>{project.desc}</p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: accent }}>
+                  View Details <HiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </motion.a>
           );
         })}
       </div>

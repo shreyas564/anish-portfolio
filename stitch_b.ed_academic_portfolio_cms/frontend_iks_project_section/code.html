@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduPortfolio - IKS Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#4c93e6",
+                    "primary-container": "#1a2b3c",
+                    "surface-container-low": "#f2f4f6",
+                    "on-background": "#191c1e",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#d4e3ff",
+                    "tertiary-fixed-dim": "#a4c9ff",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed": "#d8e2ff",
+                    "background": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b7c8de",
+                    "on-secondary-fixed": "#001a42",
+                    "outline": "#74777d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-tertiary-fixed": "#001c39",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#b7c8de",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "tertiary": "#00152e",
+                    "on-primary-container": "#8192a7",
+                    "on-primary-fixed": "#0b1d2d",
+                    "primary": "#041627",
+                    "surface-tint": "#4f6073",
+                    "on-primary-fixed-variant": "#38485a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-container": "#2170e4",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "surface": "#f7f9fb",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#004883",
+                    "on-surface": "#191c1e",
+                    "secondary": "#0058be",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c4c6cd",
+                    "primary-fixed": "#d2e4fb",
+                    "surface-container": "#eceef0",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#002a51",
+                    "on-secondary-container": "#fefcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "48px",
+                    "md": "24px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "sidebar_width": "260px",
+                    "xl": "80px",
+                    "container_max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "h3": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h2": ["Inter"],
+                    "h1": ["Inter"],
+                    "caption": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background: radial-gradient(circle at top right, #d2e4fb 0%, #f7f9fb 40%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface bg-background min-h-screen">
+<!-- TopAppBar (Public Center Aligned) -->
+<header class="fixed top-4 inset-x-0 mx-auto max-w-[1280px] rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] flex justify-between items-center px-8 h-14 z-50 transition-all hover:backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+<span class="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent font-inter tracking-tight">EduPortfolio</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 hover:text-blue-500 transition-transform duration-300 hover:scale-105 font-inter tracking-tight" href="#">Dashboard</a>
+<a class="text-slate-600 hover:text-blue-500 transition-transform duration-300 hover:scale-105 font-inter tracking-tight" href="#">Newsletter</a>
+<a class="text-slate-600 hover:text-blue-500 transition-transform duration-300 hover:scale-105 font-inter tracking-tight" href="#">Quiz</a>
+<a class="text-blue-600 border-b-2 border-blue-500 pb-1 transition-transform duration-300 hover:scale-105 font-inter tracking-tight" href="#">IKS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 font-inter tracking-tight hover:scale-105 transition-transform duration-300">Contact</button>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden border border-white/40">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a faculty member with a friendly expression in a bright academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lO1ZeWpp-klo5eu0KtBo6uYshs5nQO3-rQgsVE3ChISkCO4pmhepJ7FOb2e_0eEOh13MGaGjRDN2-YPCxQR_lNx54tb_9nX96FMlyIW6rh_n1aTNqwi6WlhtHx8EZCguCpwc--yBe5Y3R6rgy4NiyidqyQjw3KL3di9-lXZ71JcArDabYE-QvsZFLhw6ZXyYP0udhYaeUz_pAhfk30E4pu6TKQkaQ3jBycflkRdZ9D6tK7DFRLBrjNfYM6n3u-9uZSXQwWS0Xls"/>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-xl">
+<!-- Hero Section / Animated Carousel Concept -->
+<section class="max-w-[1280px] mx-auto px-8 mb-xl">
+<div class="relative w-full h-[540px] rounded-[32px] overflow-hidden glass-card p-4">
+<div class="flex h-full gap-4">
+<!-- Carousel Slide Content -->
+<div class="flex-1 relative rounded-[24px] overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Ancient Indian observatory with stone structures under a clear blue sky, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA9p5UwABDVmg2W-OM6eOAdH9Q2FygD4W5HRHivJO3rTf5_FWWfwf7md1qB1BbIdI03eMXLk3Xy70Rpu0aGP-rmh5qHgqz9YqUDMc7vP6CSPmeilOxRtz3xEwKUdvPc1or2Feou-SPy7oHT2Sc71uU2eQEWh32mwjbQPUzG-hQTsU7mbrBIftP4CcHaqPhpBxD5YBPEEdVH1EGo4cPNsUZ9XYX3h0twY7FopeNu0s5yvJPOVOsE2NG78TH579P0PIbmyYFeG8netY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary/20 backdrop-blur-md border border-white/20 text-white text-label-sm mb-4">IKS Spotlight</span>
+<h1 class="font-h1 text-white mb-4">Astronomy in Ancient India</h1>
+<p class="font-body-lg text-slate-200 mb-8 opacity-90">Exploring the sophisticated mathematical and observational techniques used by ancient scholars to map the cosmos with unparalleled precision.</p>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-secondary text-white rounded-xl font-inter font-semibold hover:bg-secondary/90 transition-all">Explore Project</button>
+<button class="px-8 py-3 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-xl font-inter font-semibold hover:bg-white/20 transition-all">Watch Film</button>
+</div>
+</div>
+</div>
+<!-- Carousel Thumbnails / Interaction -->
+<div class="w-24 flex flex-col gap-4">
+<div class="flex-1 rounded-2xl overflow-hidden border-2 border-secondary/50 cursor-pointer group">
+<img class="w-full h-full object-cover" data-alt="Close-up of ancient Sanskrit manuscript with detailed diagrams and calligraphy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM9_1tF6mYQ0GPXBcIEI8wVoBFBbMZGc9r6kAD_JhcFL6OtFMZqd35K5AjuHLg9_CW2AyHgPDkA7fkPsi2t7-FgrUnzEl3Jt_BNY0ZjI1EEAccOKn03wcOai3dGLyATO5FWdTi9-YBbiNpJTmlkrsPWn5M-mugOEcnt54q00UrSRZahSWBWRoowte88CkT5JiiwcMXZsVUdhDsoSaabOM2ZTOqtBgBEVuFN3e0rPEE6pozNRVi8lvJGi9TsctKGXXYRGplxtKRkmM"/>
+</div>
+<div class="flex-1 rounded-2xl overflow-hidden opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Intricate geometric patterns on traditional temple architecture in India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGBCoXfetDnywHUt8rHlpjyV1ihsJE8DancqnppOrbiHXbA5OmlRg0Ql34ZYfcIRnlfCouhXZX9nJdcBIfel6xvUYTg5iDsP1Q1iRBM20l87lhrhzOZvrDwYWXq5wnKjU96ApoM9R5tBu-Ai6JhtFjQt1mbIcLqF2G1OkgHYTb7e_sQSpYMj11mWrNvdmACOsmrSqf7Hd0vj00MQ3lvou0kAlKpyaUYMWbrK-UK7HdJYu9rtA18vKmS3NkmOAnPpYWv0WOwKrEDpo"/>
+</div>
+<div class="flex-1 rounded-2xl overflow-hidden opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Lush surroundings of an ancient Vedic school with stone pathways and greenery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANgQU25uDSG_RjCiODmjhMNPrzXnOViO95EFFity_jWyVpPhCHf_KO8qB4laTNInodvGK-pe0pGFv3Cy73YxQuU6oeNpbJBGnKz-ikWxQ1NZOSB30sNICGbljnj2odhXILO15_rk_UyspslzG6i-pPOiI5Xo1C_HVWkHI-E9ZHagYVqvhnUG5StbqIbJd_y_UW_IEpuJpQx3PxPCKjyE5zW9blA3rddKg7Rz3-Vx0FtKt_JKZSOlI_jMC4BOQWoG6PtbYAzJVPa2w"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section Heading -->
+<section class="max-w-[1280px] mx-auto px-8 mb-md">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-h2 text-primary mb-2">IKS Project Portfolio</h2>
+<p class="font-body-md text-on-primary-container">Bridging traditional wisdom with modern academic inquiry.</p>
+</div>
+<div class="flex gap-2 mb-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card hover:bg-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Glassmorphism Grid -->
+<section class="max-w-[1280px] mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Project Card 1 -->
+<div class="glass-card rounded-[24px] p-6 hover:scale-[1.02] transition-transform duration-300 flex flex-col group">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Stunning aerial view of a symmetrical stepwell with intricate stone carving in Rajasthan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtrkGUAFN_p1OZAz-CegZ874Gwz0Qh0IMGNO0cX6BHANtYhzUYKN3Aia6KMimb1o2L4Y9sJ6RhOoQ0U-vtSNQwFhpNr4sY92qVukKJ69wKqC0EnIG6N-f73c2sOAYIyZJqWmGSVMcaX0cb9EJ4hCvyWtYxUOwQU5yFr_CxXGlHbxzeyh13mcis83uLOE2Pfd0UeeZcok_DgTfXI9AiSmZbfZE7fGY1u0-sjZoz9qoQSFP2BWBL1V-wB5pSZTexU9YhcqT1pXlxXuo"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="architecture">architecture</span>
+<span class="text-label-sm text-secondary uppercase font-bold tracking-widest">Engineering</span>
+</div>
+<h3 class="font-h3 text-primary mb-3">Vastu Shastra Foundations</h3>
+<p class="font-body-md text-on-primary-container line-clamp-3">A study of geometric principles and ecological harmony in traditional Indian architecture and urban planning.</p>
+</div>
+<div class="pt-6 mt-6 border-t border-white/20 flex justify-between items-center">
+<span class="text-caption text-slate-500">Duration: 12 Months</span>
+<a class="flex items-center gap-1 text-secondary font-semibold hover:gap-2 transition-all" href="#">
+                            View Study
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="glass-card rounded-[24px] p-6 hover:scale-[1.02] transition-transform duration-300 flex flex-col group">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Person practicing yoga in a peaceful outdoor setting at sunrise with golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1Yyoj2wjQwJ7p8omye0DGLk8teRdwn-LU0rOM1jhn6cdvmbjEF5DHgjSIyk4ZEDM3ZSfhF3YlQFBZcf6OpBKKK97qeJJbQ6TD3Rwysu0RdwG_pQuSGQTg68AeBVmgUh-hwk9bXjf5VyNqB7Ce3ij8eunwP9B1w5-8sfv-H3HTCWdwzsP1yTiAR4o1H2QIfvJwT_vMygEZEEC2CzTmtuSMIZbJc6kSEtwrpFfbCJkp-aHlJyzwprz7hc_Ad-OIZqZDAfUx3WBaHQs"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="health_and_safety">health_and_safety</span>
+<span class="text-label-sm text-secondary uppercase font-bold tracking-widest">Wellness</span>
+</div>
+<h3 class="font-h3 text-primary mb-3">Ayurvedic Neural Studies</h3>
+<p class="font-body-md text-on-primary-container line-clamp-3">Analyzing the correlation between traditional herbology and modern neuroscience in cognitive health management.</p>
+</div>
+<div class="pt-6 mt-6 border-t border-white/20 flex justify-between items-center">
+<span class="text-caption text-slate-500">Duration: 8 Months</span>
+<a class="flex items-center gap-1 text-secondary font-semibold hover:gap-2 transition-all" href="#">
+                            View Study
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="glass-card rounded-[24px] p-6 hover:scale-[1.02] transition-transform duration-300 flex flex-col group">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Artistic macro shot of brass scientific instruments and old compass on wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8hTOw9GsfKcTHABnfxLxsmFliwXdud4LPeNQ-5OmQBHd5JULmqzKrgRQd6CFsqh2fYvAWz1O3DuMJSVuqqvWdghU9o_1jGUz-4ryI8vV_-ipDRrhR-bV0oMdz68Qwua7_N9lbTuERYLgPxzN8vttpufyrxSzZIdEVgUYn4Tz32__gh_E1lkfO0hRgAgrUttd8HWaC48TbGf8OmggFS_sPHTKAAq4_YZwWW5yv9v3aXkrPyCO3J5MX0pek6rn7caWkLThQxChLOso"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="functions">functions</span>
+<span class="text-label-sm text-secondary uppercase font-bold tracking-widest">Mathematics</span>
+</div>
+<h3 class="font-h3 text-primary mb-3">The Zero Paradigm</h3>
+<p class="font-body-md text-on-primary-container line-clamp-3">Tracing the evolution of computational logic from Sulba Sutras to modern-day binary arithmetic systems.</p>
+</div>
+<div class="pt-6 mt-6 border-t border-white/20 flex justify-between items-center">
+<span class="text-caption text-slate-500">Duration: 24 Months</span>
+<a class="flex items-center gap-1 text-secondary font-semibold hover:gap-2 transition-all" href="#">
+                            View Study
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1280px] mx-auto px-8 mt-xl">
+<div class="rounded-[40px] bg-primary-container text-white p-xl relative overflow-hidden flex flex-col md:flex-row items-center gap-lg">
+<!-- Decorative pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<pattern height="10" id="grid" patternunits="userSpaceOnUse" width="10">
+<path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"></path>
+</pattern>
+<rect fill="url(#grid)" height="100" width="100"></rect>
+</svg>
+</div>
+<div class="relative z-10 flex-1 text-center md:text-left">
+<h2 class="font-h1 text-white mb-4">Contribute to Knowledge</h2>
+<p class="font-body-lg text-on-primary-container mb-8 max-w-xl">Join our faculty in uncovering and digitizing thousands of years of intellectual heritage for a global audience.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<button class="px-10 py-4 bg-secondary text-white rounded-2xl font-inter font-bold hover:bg-secondary-container transition-all shadow-xl shadow-blue-900/20">Apply for Research</button>
+<button class="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-inter font-bold hover:bg-white/20 transition-all">Submit Manuscript</button>
+</div>
+</div>
+<div class="relative z-10 w-full md:w-1/3 flex justify-center">
+<div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-dashed border-white/20 flex items-center justify-center">
+<div class="w-40 h-40 md:w-52 md:h-52 rounded-full glass-card flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-[64px] text-white" data-icon="history_edu">history_edu</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8">
+<div class="flex flex-col gap-2 mb-8 md:mb-0 text-center md:text-left">
+<span class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-tighter">EduPortfolio System</span>
+<p class="font-inter text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400">© 2024 Educational Portfolio System. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:underline decoration-blue-500 underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:underline decoration-blue-500 underline-offset-4" href="#">Terms of Service</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200 hover:underline decoration-blue-500 underline-offset-4" href="#">Faculty Portal</a>
+</div>
+</div>
+</footer>
+</body></html>

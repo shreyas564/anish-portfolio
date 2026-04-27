@@ -28,65 +28,32 @@ export default function NewsletterSection({ data }) {
   const prevPage = () => goToPage(currentPage - 1, -1);
 
   const flipVariants = {
-    enter: (dir) => ({
-      rotateY: dir > 0 ? 90 : -90,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      rotateY: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-    },
-    exit: (dir) => ({
-      rotateY: dir > 0 ? -90 : 90,
-      opacity: 0,
-      scale: 0.95,
-      transition: { duration: 0.4, ease: [0.7, 0, 0.84, 0] },
-    }),
+    enter: (dir) => ({ rotateY: dir > 0 ? 90 : -90, opacity: 0, scale: 0.95 }),
+    center: { rotateY: 0, opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+    exit: (dir) => ({ rotateY: dir > 0 ? -90 : 90, opacity: 0, scale: 0.95, transition: { duration: 0.4, ease: [0.7, 0, 0.84, 0] } }),
   };
 
   const currentItem = items[currentPage];
 
   return (
-    <Section
-      id="newsletter"
-      title="Digital Newsletter"
-      subtitle="Flip through the pages of our educational newsletter"
-      className="bg-[var(--bg-secondary)]"
-    >
+    <Section id="newsletter" title="Digital Newsletter" subtitle="Flip through the pages of our educational newsletter" className="bg-[var(--bg-secondary)]">
       <div style={{ maxWidth: 700, margin: '0 auto' }}>
         {/* Book Container */}
         <div style={{ perspective: '1800px', position: 'relative' }}>
           {/* Book Shadow */}
-          <div style={{
-            position: 'absolute', bottom: -12, left: '10%', right: '10%', height: 24,
-            background: 'rgba(99, 102, 241, 0.15)', filter: 'blur(20px)', borderRadius: '50%',
-          }} />
+          <div style={{ position: 'absolute', bottom: -12, left: '10%', right: '10%', height: 24, background: 'rgba(0, 88, 190, 0.1)', filter: 'blur(20px)', borderRadius: '50%' }} />
 
           {/* Book */}
-          <div className="glass-card" style={{ overflow: 'hidden', position: 'relative' }}>
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm" style={{ overflow: 'hidden', position: 'relative' }}>
             {/* Book header */}
-            <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '16px 24px', borderBottom: '1px solid var(--glass-border)',
-            }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 24px', borderBottom: '1px solid #E6E8EA' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{
-                  width: 36, height: 36, borderRadius: 10,
-                  background: 'linear-gradient(135deg, #6366f1, #a855f7)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <HiNewspaper style={{ width: 18, height: 18, color: 'white' }} />
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: '#EBF4FF' }}>
+                  <HiNewspaper style={{ width: 18, height: 18, color: '#0058BE' }} />
                 </div>
                 <div>
-                  <p style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                    Digital Newsletter
-                  </p>
-                  <p style={{ fontSize: '0.7rem', opacity: 0.5 }}>
-                    Page {currentPage + 1} of {totalPages}
-                  </p>
+                  <p style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--navy-deep)' }}>Digital Newsletter</p>
+                  <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Page {currentPage + 1} of {totalPages}</p>
                 </div>
               </div>
 
@@ -97,9 +64,8 @@ export default function NewsletterSection({ data }) {
                     key={i}
                     onClick={() => goToPage(i, i > currentPage ? 1 : -1)}
                     style={{
-                      width: i === currentPage ? 24 : 8, height: 8,
-                      borderRadius: 4, border: 'none', cursor: 'pointer',
-                      background: i === currentPage ? '#6366f1' : 'rgba(99, 102, 241, 0.25)',
+                      width: i === currentPage ? 24 : 8, height: 8, borderRadius: 4, border: 'none', cursor: 'pointer',
+                      background: i === currentPage ? '#0058BE' : 'rgba(0, 88, 190, 0.2)',
                       transition: 'all 0.3s ease',
                     }}
                     aria-label={`Go to page ${i + 1}`}
@@ -109,10 +75,7 @@ export default function NewsletterSection({ data }) {
             </div>
 
             {/* Page content with flip animation */}
-            <div style={{
-              position: 'relative', minHeight: 500, overflow: 'hidden',
-              transformStyle: 'preserve-3d',
-            }}>
+            <div style={{ position: 'relative', minHeight: 500, overflow: 'hidden', transformStyle: 'preserve-3d' }}>
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={currentPage}
@@ -129,117 +92,71 @@ export default function NewsletterSection({ data }) {
                   }}
                 >
                   {currentItem.image ? (
-                    <img
-                      src={currentItem.image}
-                      alt={currentItem.title}
-                      style={{
-                        width: '100%', height: 360, objectFit: 'contain',
-                        borderRadius: 12, marginBottom: 20,
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-                      }}
-                    />
+                    <img src={currentItem.image} alt={currentItem.title} style={{ width: '100%', height: 360, objectFit: 'contain', borderRadius: 12, marginBottom: 20, boxShadow: '0 4px 20px rgba(0,0,0,0.06)' }} />
                   ) : (
-                    <div style={{
-                      width: '100%', height: 360, borderRadius: 12,
-                      border: '2px dashed rgba(99, 102, 241, 0.25)',
-                      display: 'flex', flexDirection: 'column', alignItems: 'center',
-                      justifyContent: 'center', gap: 12,
-                      background: 'rgba(99, 102, 241, 0.03)',
-                    }}>
-                      <HiNewspaper style={{ width: 48, height: 48, color: 'rgba(99, 102, 241, 0.3)' }} />
-                      <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>
-                        Insert newsletter page {currentPage + 1} image
-                      </span>
+                    <div style={{ width: '100%', height: 360, borderRadius: 12, border: '2px dashed rgba(0, 88, 190, 0.15)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12, background: 'rgba(0, 88, 190, 0.03)' }}>
+                      <HiNewspaper style={{ width: 48, height: 48, color: 'rgba(0, 88, 190, 0.2)' }} />
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Newsletter page {currentPage + 1}</span>
                     </div>
                   )}
 
-                  {/* Page title/desc */}
                   <div style={{ textAlign: 'center', width: '100%' }}>
-                    <h4 style={{
-                      fontSize: '1.1rem', fontWeight: 700, fontFamily: "'Outfit', sans-serif",
-                      color: 'var(--text-primary)', marginBottom: 4,
-                    }}>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", color: 'var(--navy-deep)', marginBottom: 4 }}>
                       {currentItem.title}
                     </h4>
-                    <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>
-                      {currentItem.description}
-                    </p>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{currentItem.description}</p>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
 
             {/* Navigation footer */}
-            <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '16px 24px', borderTop: '1px solid var(--glass-border)',
-            }}>
-              <motion.button
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 24px', borderTop: '1px solid #E6E8EA' }}>
+              <button
                 onClick={prevPage}
                 disabled={currentPage === 0 || isFlipping}
-                whileHover={currentPage > 0 ? { scale: 1.08 } : {}}
-                whileTap={currentPage > 0 ? { scale: 0.92 } : {}}
-                style={{
-                  width: 44, height: 44, borderRadius: 12,
-                  background: currentPage === 0 ? 'rgba(99, 102, 241, 0.05)' : 'rgba(99, 102, 241, 0.1)',
-                  border: 'none', cursor: currentPage === 0 ? 'default' : 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--text-primary)',
-                  opacity: currentPage === 0 ? 0.3 : 1,
-                  transition: 'all 0.2s ease',
-                }}
+                className="w-10 h-10 rounded-lg flex items-center justify-center border transition-colors cursor-pointer"
+                style={{ borderColor: currentPage === 0 ? '#E6E8EA' : '#D0D5DD', background: 'white', color: currentPage === 0 ? '#D0D5DD' : 'var(--text-secondary)', opacity: currentPage === 0 ? 0.4 : 1 }}
               >
-                <HiChevronLeft style={{ width: 20, height: 20 }} />
-              </motion.button>
+                <HiChevronLeft style={{ width: 18, height: 18 }} />
+              </button>
 
-              <span style={{ fontSize: '0.8rem', fontWeight: 600, opacity: 0.5 }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)' }}>
                 {currentPage + 1} / {totalPages}
               </span>
 
-              <motion.button
+              <button
                 onClick={nextPage}
                 disabled={currentPage === totalPages - 1 || isFlipping}
-                whileHover={currentPage < totalPages - 1 ? { scale: 1.08 } : {}}
-                whileTap={currentPage < totalPages - 1 ? { scale: 0.92 } : {}}
-                style={{
-                  width: 44, height: 44, borderRadius: 12,
-                  background: currentPage === totalPages - 1 ? 'rgba(99, 102, 241, 0.05)' : 'rgba(99, 102, 241, 0.1)',
-                  border: 'none', cursor: currentPage === totalPages - 1 ? 'default' : 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--text-primary)',
-                  opacity: currentPage === totalPages - 1 ? 0.3 : 1,
-                  transition: 'all 0.2s ease',
-                }}
+                className="w-10 h-10 rounded-lg flex items-center justify-center border transition-colors cursor-pointer"
+                style={{ borderColor: currentPage === totalPages - 1 ? '#E6E8EA' : '#D0D5DD', background: 'white', color: currentPage === totalPages - 1 ? '#D0D5DD' : 'var(--text-secondary)', opacity: currentPage === totalPages - 1 ? 0.4 : 1 }}
               >
-                <HiChevronRight style={{ width: 20, height: 20 }} />
-              </motion.button>
+                <HiChevronRight style={{ width: 18, height: 18 }} />
+              </button>
             </div>
           </div>
         </div>
 
         {/* Page thumbnails */}
-        <div style={{
-          display: 'flex', gap: 10, justifyContent: 'center',
-          marginTop: 24, flexWrap: 'wrap',
-        }}>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 20, flexWrap: 'wrap' }}>
           {items.map((item, i) => (
             <motion.button
               key={i}
               onClick={() => goToPage(i, i > currentPage ? 1 : -1)}
-              whileHover={{ y: -4 }}
+              whileHover={{ y: -3 }}
+              className="border transition-all cursor-pointer overflow-hidden flex items-center justify-center"
               style={{
-                width: 64, height: 80, borderRadius: 10,
-                border: i === currentPage ? '2px solid #6366f1' : '1px solid var(--glass-border)',
-                background: 'var(--glass-bg)', cursor: 'pointer', overflow: 'hidden',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.3s ease',
-                boxShadow: i === currentPage ? '0 4px 16px rgba(99, 102, 241, 0.3)' : 'none',
+                width: 56, height: 72, borderRadius: 8,
+                borderColor: i === currentPage ? '#0058BE' : '#E6E8EA',
+                borderWidth: i === currentPage ? 2 : 1,
+                background: 'white',
+                boxShadow: i === currentPage ? '0 4px 12px rgba(0, 88, 190, 0.2)' : 'none',
               }}
             >
               {item.image ? (
                 <img src={item.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : (
-                <span style={{ fontSize: '0.6rem', opacity: 0.4, textAlign: 'center' }}>Pg {i + 1}</span>
+                <span style={{ fontSize: '0.55rem', color: 'var(--text-muted)' }}>Pg {i + 1}</span>
               )}
             </motion.button>
           ))}

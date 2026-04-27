@@ -1,14 +1,16 @@
 'use client';
 
 export default function InputField({ label, value, onChange, type = 'text', placeholder, rows }) {
-  const baseClass = "w-full px-4 py-3 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] text-[var(--text-primary)] outline-none focus:border-indigo-500 transition-colors text-sm";
+  const base = "w-full px-3.5 py-2.5 rounded-lg text-sm text-slate-900 bg-slate-50 border border-slate-200 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 focus:bg-white";
   return (
     <div className="space-y-1.5">
-      {label && <label className="block text-sm font-medium text-[var(--text-primary)] opacity-80">{label}</label>}
+      {label && (
+        <label className="block text-xs font-semibold text-slate-600 tracking-wide">{label}</label>
+      )}
       {rows ? (
-        <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} rows={rows} className={baseClass + ' resize-none'} />
+        <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} rows={rows} className={base + ' resize-none'} />
       ) : (
-        <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className={baseClass} />
+        <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className={base} />
       )}
     </div>
   );

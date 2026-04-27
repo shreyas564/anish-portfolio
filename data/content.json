@@ -1,11 +1,11 @@
 {
   "hero": {
     "name": "Anish Shriram Paranjape",
-    "tagline": "[Add your tagline or brief introduction here — describe your passion for education and learning]",
-    "academicYear": "[Academic Year]"
+    "tagline": "passionate for education and learning",
+    "academicYear": "2025-26"
   },
   "about": {
-    "name": "[Student Name]",
+    "name": "Anish Shriram Paranjape",
     "paragraph1": "[Add your introduction paragraph here — talk about your educational journey, your goals in education, and what drives you as a future educator.]",
     "paragraph2": "[Add a second paragraph about your interests, skills, and what you hope to achieve through your B.Ed program.]",
     "profileImage": "",
@@ -83,7 +83,8 @@
         "description": "[Add description here]",
         "image": ""
       }
-    ]
+    ],
+    "pdfUrl": "/uploads/newsletter/1777280824447_Skillatics_Adaptive_Intelligence_Platform__1___1_.pdf"
   },
   "quiz": {
     "title": "[Quiz Title]",
@@ -197,7 +198,7 @@
     {
       "title": "Download Poster",
       "desc": "[Digital Safety Poster — PDF/Image format]",
-      "file": ""
+      "file": "/uploads/downloads/1777285280572_Admit_Card.pdf"
     },
     {
       "title": "Download Newsletter",

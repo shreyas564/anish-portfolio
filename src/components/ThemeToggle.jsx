@@ -37,7 +37,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       className="relative w-11 h-11 rounded-full flex items-center justify-center
                  bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/20
-                 dark:border-white/10 hover:border-indigo-400/50 transition-all duration-300
+                 dark:border-white/10 hover:border-blue-500/50 transition-all duration-300
                  cursor-pointer"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
@@ -62,7 +62,7 @@ export default function ThemeToggle() {
             exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.25 }}
           >
-            <HiMoon className="w-5 h-5 text-indigo-600" />
+            <HiMoon className="w-5 h-5 text-blue-600" />
           </motion.div>
         )}
       </AnimatePresence>

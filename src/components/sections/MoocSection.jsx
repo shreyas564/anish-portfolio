@@ -1,46 +1,98 @@
 'use client';
 import { motion } from 'framer-motion';
 import Section from '../Section';
-import { HiCheckCircle } from 'react-icons/hi';
+import { HiChartBar, HiExternalLink, HiCheckCircle } from 'react-icons/hi';
 
 export default function MoocSection({ data }) {
   const d = data || {
     timeline: [
-      { step: '01', title: '[MOOC Platform Name]', desc: '[Details here]', status: '[Status]' },
-      { step: '02', title: '[Course Module 1]', desc: '[Details here]', status: '[Status]' },
+      { step: '01', title: '[Course Title]', desc: '[Description]', status: '[Status]' },
     ],
-    takeaways: '[Add your key takeaways here]',
+    takeaways: '[Key takeaways here]',
   };
 
   return (
-    <Section id="mooc" title="MOOC Analysis" subtitle="Analysis of Massive Open Online Courses undertaken during the semester">
-      <div className="max-w-3xl mx-auto">
-        <div className="relative">
-          <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-cyan-500 opacity-30" />
-          {d.timeline.map((item, i) => (
-            <motion.div key={i} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }} className="relative flex gap-6 mb-8 last:mb-0">
-              <div className="relative z-10 flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                  <span className="text-white font-bold text-sm">{item.step}</span>
-                </div>
+    <Section id="mooc" title="Continuous Learning Journey" subtitle="An analytical overview of completed massive open online courses, platform engagement, and acquired competencies">
+      <div className="max-w-4xl mx-auto">
+        {/* Featured card */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 mb-8">
+          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase mb-4" style={{ background: '#FFF7ED', color: '#EA580C' }}>Featured Certification</span>
+          <h3 className="text-2xl font-bold tracking-tight mb-2" style={{ color: 'var(--navy-deep)' }}>
+            {d.timeline[0]?.title || 'Course Title'}
+          </h3>
+          <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>{d.timeline[0]?.desc || 'Description'}</p>
+          <div className="flex items-center gap-8">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Progress</p>
+              <div className="w-40 h-2 rounded-full mt-2" style={{ background: '#E6E8EA' }}>
+                <div className="h-full rounded-full" style={{ width: '100%', background: '#0058BE' }} />
               </div>
-              <div className="glass-card p-5 flex-1">
-                <div className="flex items-start justify-between mb-2">
-                  <h4 className="text-base font-bold font-['Outfit'] text-[var(--text-primary)]">{item.title}</h4>
-                  <span className="text-xs px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 font-medium flex-shrink-0">{item.status}</span>
-                </div>
-                <p className="text-sm opacity-60 leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }} className="glass-card p-6 mt-8">
-          <div className="flex items-center gap-3 mb-3">
-            <HiCheckCircle className="w-6 h-6 text-emerald-500" />
-            <h4 className="text-base font-bold text-[var(--text-primary)]">Key Takeaways</h4>
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Status</p>
+              <span className="inline-flex items-center gap-1 text-sm font-semibold mt-1" style={{ color: '#059669' }}>
+                <HiCheckCircle className="w-4 h-4" /> {d.timeline[0]?.status || 'Completed'}
+              </span>
+            </div>
           </div>
-          <p className="text-sm opacity-60 leading-relaxed">{d.takeaways}</p>
         </motion.div>
+
+        {/* Impact metrics */}
+        <div className="grid sm:grid-cols-2 gap-6 mb-8">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#EBF4FF' }}>
+                <HiChartBar className="w-4 h-4" style={{ color: '#0058BE' }} />
+              </div>
+              <span className="text-sm font-semibold" style={{ color: 'var(--navy-deep)' }}>Impact Metrics</span>
+            </div>
+            <div className="flex gap-8">
+              <div>
+                <span className="text-3xl font-bold" style={{ color: 'var(--navy-deep)' }}>{d.timeline.length}</span>
+                <span className="text-xl font-bold" style={{ color: 'var(--text-muted)' }}>+</span>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Courses Completed</p>
+              </div>
+              <div>
+                <span className="text-3xl font-bold" style={{ color: 'var(--navy-deep)' }}>320</span>
+                <span className="text-xl font-bold" style={{ color: 'var(--text-muted)' }}>+</span>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Hours Logged</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+            <span className="text-sm font-semibold block mb-3" style={{ color: 'var(--navy-deep)' }}>Key Competencies</span>
+            <div className="flex flex-wrap gap-2">
+              {(d.takeaways || '').split(',').filter(Boolean).slice(0, 6).map((t, i) => (
+                <span key={i} className="px-3 py-1.5 rounded-full text-xs font-medium" style={{ background: 'var(--bg-secondary)', color: 'var(--text-secondary)', border: '1px solid var(--bg-tertiary)' }}>
+                  {t.trim()}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Timeline */}
+        {d.timeline.length > 1 && (
+          <div className="space-y-4">
+            {d.timeline.slice(1).map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 text-sm font-bold" style={{ background: '#EBF4FF', color: '#0058BE' }}>
+                  {item.step}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-bold" style={{ color: 'var(--navy-deep)' }}>{item.title}</h4>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
+                </div>
+                <span className="text-xs font-medium px-2.5 py-1 rounded-full shrink-0" style={{ background: '#ECFDF5', color: '#059669' }}>{item.status}</span>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </Section>
   );

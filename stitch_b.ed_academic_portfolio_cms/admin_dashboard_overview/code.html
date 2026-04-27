@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard - Educational Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#4c93e6",
+                        "primary-container": "#1a2b3c",
+                        "surface-container-low": "#f2f4f6",
+                        "on-background": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d4e3ff",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#d8e2ff",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b7c8de",
+                        "on-secondary-fixed": "#001a42",
+                        "outline": "#74777d",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#001c39",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed-dim": "#b7c8de",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "tertiary": "#00152e",
+                        "on-primary-container": "#8192a7",
+                        "on-primary-fixed": "#0b1d2d",
+                        "primary": "#041627",
+                        "surface-tint": "#4f6073",
+                        "on-primary-fixed-variant": "#38485a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#2170e4",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "surface": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "on-surface": "#191c1e",
+                        "secondary": "#0058be",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c6cd",
+                        "primary-fixed": "#d2e4fb",
+                        "surface-container": "#eceef0",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#002a51",
+                        "on-secondary-container": "#fefcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "md": "24px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "sidebar_width": "260px",
+                        "xl": "80px",
+                        "container_max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h3": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- NavigationDrawer (Admin Sidebar) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] border-r border-slate-700/50 bg-[#1A2B3C] dark:bg-slate-950 shadow-2xl flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold text-white tracking-tight">Admin Console</h1>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Item: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-500/10 text-white border-r-4 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-[0.98] active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-sm font-medium tracking-wide">Dashboard</span>
+</a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="newspaper">newspaper</span>
+<span class="font-inter text-sm font-medium tracking-wide">Newsletter</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-inter text-sm font-medium tracking-wide">Quiz</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+<span class="font-inter text-sm font-medium tracking-wide">Poster</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-inter text-sm font-medium tracking-wide">MOOC</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-inter text-sm font-medium tracking-wide">IKS</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span class="font-inter text-sm font-medium tracking-wide">Downloads</span>
+</a>
+</nav>
+<div class="px-6 mt-auto pt-6 border-t border-slate-700/50">
+<div class="flex items-center gap-3">
+<img alt="Admin" class="w-10 h-10 rounded-full border border-slate-600" data-alt="Close-up portrait of a professional man with a friendly expression in a corporate setting, soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHrsbylDjOljgUuwt0HLoiEjiqyMUAIR3BI-JmdSxWO2H70sSMhAk9_mxdDEL-HqpjvA4ZvEgCzugv4w5t-Q138czKzNBvBaKKzHvlTy39tV_oZYSBW36M7WPxRaWSHIhXlK0Ki_NuYedvIg1khjwfGfVPf3xWcRc6hFVYGet5U5n0f4NBDfcY1hFeng0W65OhoVt9U1Pw0D42xJFcobWdpbq0G6ZV2vK5MFPlmJ6pekyWL38ex6LH7MPCltZS6plqfjbgyqbmySo"/>
+<div class="overflow-hidden">
+<p class="text-sm font-semibold text-white truncate">Admin User</p>
+<p class="text-xs text-slate-400 truncate">System Manager</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex justify-between items-center px-6 h-16 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-colors" data-icon="menu">menu</button>
+<h2 class="font-inter text-base font-semibold text-slate-900 dark:text-slate-100">Admin Dashboard</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-900" data-icon="search">search</button>
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-900" data-icon="notifications">notifications</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+<img alt="Profile" data-alt="Professional avatar of a user in high-key lighting, minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4xpn3EWgPsKpAjgYZg4yGJOyWm1vIVS2jXcn-pJK0ngzxfumuCEeh1ZFr-I32m8uNNdKhH074gsmuXN34JF-ySiHRc3hz29RWOgWVexLm9MbcbgZeZ-oZehwEgTu1CoLDZUnk7_shpLBBXQOIwgsX495mwNdeg7g5fA6q58JEUC706iGtENflW1r69_4n_0O3MNIlM3pcF4DKOj4hbbD8BXeSbqkRdwFJYVQob2-rHMwgzUL_pwTtRfbGQCan8f4dtrSR744lLsg"/>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="p-md lg:p-lg space-y-md">
+<!-- Welcome Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-h2 text-h2 text-primary">Overview</h1>
+<p class="font-body-md text-on-primary-container">Welcome back, Admin. Here's what's happening with the portfolio today.</p>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-sm flex items-center gap-2 hover:bg-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Create New Project
+                </button>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Stat Card: Projects -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-blue-300 transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-blue-50 rounded-lg text-blue-600">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</div>
+<span class="text-green-500 font-label-sm flex items-center gap-1">
+                            +12% <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<div class="mt-4">
+<p class="font-label-sm text-slate-500 uppercase">Total Projects</p>
+<h3 class="text-4xl font-extrabold text-primary-container">1,284</h3>
+</div>
+</div>
+<!-- Stat Card: Media Items -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-blue-300 transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</div>
+<span class="text-green-500 font-label-sm flex items-center gap-1">
+                            +5% <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<div class="mt-4">
+<p class="font-label-sm text-slate-500 uppercase">Media Items</p>
+<h3 class="text-4xl font-extrabold text-primary-container">8,520</h3>
+</div>
+</div>
+<!-- Stat Card: Downloads -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-blue-300 transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-teal-50 rounded-lg text-teal-600">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</div>
+<span class="text-slate-400 font-label-sm flex items-center gap-1">
+                            0% <span class="material-symbols-outlined text-xs" data-icon="horizontal_rule">horizontal_rule</span>
+</span>
+</div>
+<div class="mt-4">
+<p class="font-label-sm text-slate-500 uppercase">Downloads</p>
+<h3 class="text-4xl font-extrabold text-primary-container">2,914</h3>
+</div>
+</div>
+<!-- Stat Card: Last Updated -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-blue-300 transition-colors">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-slate-50 rounded-lg text-slate-600">
+<span class="material-symbols-outlined" data-icon="update">update</span>
+</div>
+</div>
+<div class="mt-4">
+<p class="font-label-sm text-slate-500 uppercase">Last Updated</p>
+<h3 class="text-xl font-bold text-primary-container">24 mins ago</h3>
+<p class="text-xs text-slate-400 mt-1">v4.2.1 Core Update</p>
+</div>
+</div>
+</div>
+<!-- Dashboard Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Recent Activity List (Span 2) -->
+<div class="lg:col-span-2 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+<h4 class="font-h3 text-primary-container text-lg">Recent Activity</h4>
+<button class="text-blue-600 font-label-sm hover:underline">View All</button>
+</div>
+<div class="divide-y divide-slate-50">
+<!-- Activity Item 1 -->
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+<div class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="upload_file">upload_file</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900">New MOOC Content Uploaded</p>
+<p class="text-xs text-slate-500">History of Modern Architecture • Module 4</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400">12:45 PM</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+<div class="h-10 w-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900">Quiz Published</p>
+<p class="text-xs text-slate-500">Advanced Calculus • Semester 2 Final</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400">Yesterday</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+<div class="h-10 w-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900">Newsletter Draft Saved</p>
+<p class="text-xs text-slate-500">Academic Monthly - October Edition</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400">Oct 12</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+<div class="h-10 w-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="person_add">person_add</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900">New Faculty Member Joined</p>
+<p class="text-xs text-slate-500">Dr. Sarah Jenkins • Computer Science</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400">Oct 11</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel: Portfolio Progress -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-6">
+<h4 class="font-h3 text-primary-container text-lg">System Health</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-xs font-medium text-slate-600">Storage Usage</span>
+<span class="text-xs font-medium text-slate-900">78%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2">
+<div class="bg-blue-600 h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-xs font-medium text-slate-600">Server Uptime</span>
+<span class="text-xs font-medium text-slate-900">99.9%</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 99%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-xs font-medium text-slate-600">Active Sessions</span>
+<span class="text-xs font-medium text-slate-900">42</span>
+</div>
+<div class="w-full bg-slate-100 rounded-full h-2">
+<div class="bg-amber-400 h-2 rounded-full" style="width: 42%"></div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-100">
+<div class="rounded-lg bg-slate-50 p-4 border border-slate-100">
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-2">Upcoming Maintenance</p>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-500" data-icon="info">info</span>
+<p class="text-xs text-slate-700 leading-relaxed">Scheduled database optimization on <span class="font-bold">Oct 15, 02:00 AM UTC</span>. Brief downtime expected.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Showcase (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-md">
+<div class="md:col-span-3 h-64 rounded-2xl overflow-hidden relative group">
+<img alt="Dashboard Hero" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Panoramic shot of a modern clean workspace with multiple computer screens showing code and architectural blueprints, natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkeLdqxlTwiOSSbEo-3EvZU65ou4LbVZUi7H5F-edCEBI-3-2O2WKQDgCQ2Ogg2pGs1a5l6kZfmYJzJxnjUdrh_AjIUj9Cn_ZgQ8941tf0p60smTxgweyEVXaD9FR_d6MbkQStOBkRivZOKH_d3gmMieunjx2VmN4dD4Sp8FUI9AflJUxuTvPm4GY2c1N6AzKasZufr00C_4KsOU9mVnBCW62Bh6oOZOTQQvmipux-T3KIrrBcULwxatqqt-P1ogUpdyUhVK8h6nM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-8 flex flex-col justify-end">
+<span class="inline-block bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest w-fit mb-2">Editor's Pick</span>
+<h4 class="text-white font-h2 text-2xl">Digital Transformation in Higher Ed</h4>
+<p class="text-slate-300 text-sm max-w-md">Featured case study for the upcoming university showcase.</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-primary-container rounded-2xl p-8 flex flex-col justify-center text-white relative overflow-hidden">
+<div class="absolute top-[-20px] right-[-20px] w-40 h-40 bg-blue-500/20 blur-3xl rounded-full"></div>
+<h5 class="text-blue-400 font-label-sm uppercase mb-4 tracking-[0.2em]">Quick Action</h5>
+<p class="text-xl font-bold mb-6 leading-tight">Ready to update the faculty portfolio directory?</p>
+<button class="bg-white text-primary px-6 py-3 rounded-xl font-label-sm hover:bg-slate-100 transition-colors w-fit">
+                        Launch Directory Manager
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer (Admin Context) -->
+<footer class="mt-lg border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 py-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8">
+<div class="mb-4 md:mb-0">
+<p class="text-sm font-bold text-slate-900 dark:text-white mb-1">Educational Portfolio System</p>
+<p class="font-inter text-xs uppercase tracking-widest text-slate-500">© 2024 Educational Portfolio System. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200" href="#">Terms of Service</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-white transition-all duration-200" href="#">Faculty Portal</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

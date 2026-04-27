@@ -8,9 +8,9 @@ const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Newsletter', href: '#newsletter' },
   { label: 'Media', href: '#media' },
   { label: 'Downloads', href: '#downloads' },
-  { label: 'Contact', href: '#footer' },
 ];
 
 export default function Navbar() {
@@ -21,17 +21,12 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      // Determine active section
       const sections = navLinks.map(l => l.href.replace('#', ''));
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(sections[i]);
-            break;
-          }
+          if (rect.top <= 150) { setActiveSection(sections[i]); break; }
         }
       }
     };
@@ -46,102 +41,91 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 navbar-glass ${scrolled ? 'scrolled' : ''}`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
+    <header className={`fixed top-4 inset-x-0 mx-auto z-50 transition-all duration-400 ${scrolled ? 'top-0' : 'top-4'}`}
+      style={{ maxWidth: '1280px', padding: '0 16px' }}>
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`flex justify-between items-center px-6 sm:px-8 h-14 transition-all duration-400 ${
+          scrolled
+            ? 'rounded-none shadow-md bg-white/80 backdrop-blur-md border-b border-slate-200/50'
+            : 'rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md shadow-[0_8px_32px_0_rgba(31,38,135,0.08)]'
+        }`}
+        style={{ fontFamily: "'Inter', sans-serif" }}
+      >
         {/* Logo */}
-        <motion.a
-          href="#hero"
-          onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
-          className="flex items-center gap-2 cursor-pointer no-underline"
-          whileHover={{ scale: 1.05 }}
-        >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <span className="text-white font-bold text-lg font-['Outfit']">P</span>
+        <a href="#hero" onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
+          className="flex items-center gap-2 no-underline shrink-0">
+          <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: '#0058BE' }}>
+            <span className="text-white font-bold text-xs">E</span>
           </div>
-          <span className="text-lg font-bold font-['Outfit'] text-[var(--text-primary)] hidden sm:block">
-            Portfolio
+          <span className="text-xl font-black bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            EduPortfolio
           </span>
-        </motion.a>
+        </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
-              <motion.a
+              <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-300 no-underline
-                  ${isActive
-                    ? 'text-indigo-600 dark:text-indigo-400'
-                    : 'text-[var(--text-primary)] opacity-70 hover:opacity-100'
-                  }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className={`text-sm tracking-tight no-underline cursor-pointer transition-all duration-200 hover:scale-105 ${
+                  isActive
+                    ? 'text-blue-600 font-semibold border-b-2 border-blue-500 pb-1'
+                    : 'text-slate-600 hover:text-blue-500 font-medium'
+                }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute inset-0 bg-indigo-500/10 dark:bg-indigo-400/10 rounded-xl"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{link.label}</span>
-              </motion.a>
+                {link.label}
+              </a>
             );
           })}
-        </div>
+        </nav>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-3">
+        {/* Right */}
+        <div className="flex items-center gap-3 shrink-0">
           <ThemeToggle />
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-11 h-11 rounded-full flex items-center justify-center
-                       bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/20
-                       dark:border-white/10 cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <HiX className="w-5 h-5" /> : <HiMenu className="w-5 h-5" />}
+          <a href="#footer" onClick={(e) => { e.preventDefault(); handleNavClick('#footer'); }}
+            className="hidden lg:inline-flex px-5 py-2 rounded-full text-sm font-semibold text-white no-underline transition-all hover:opacity-90"
+            style={{ background: '#0058BE' }}>
+            Contact
+          </a>
+          <button onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center cursor-pointer border border-slate-200 bg-white text-slate-600"
+            aria-label="Menu">
+            {mobileOpen ? <HiX className="w-4 h-4" /> : <HiMenu className="w-4 h-4" />}
           </button>
         </div>
-      </div>
+      </motion.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden navbar-glass border-t border-white/10"
-          >
-            <div className="px-6 py-4 flex flex-col gap-2">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
+          <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+            className="md:hidden mt-2 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl p-3">
+            {navLinks.map((link, i) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a key={link.href} href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="px-4 py-3 rounded-xl text-sm font-medium hover:bg-indigo-500/10
-                             transition-colors no-underline text-[var(--text-primary)]"
-                >
+                  className={`block px-4 py-3 rounded-xl text-sm font-medium no-underline transition-colors ${
+                    isActive ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+                  }`}>
                   {link.label}
-                </motion.a>
-              ))}
-            </div>
+                </a>
+              );
+            })}
+            <a href="#footer" onClick={(e) => { e.preventDefault(); handleNavClick('#footer'); setMobileOpen(false); }}
+              className="block mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-white text-center no-underline" style={{ background: '#0058BE' }}>
+              Contact
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </header>
   );
 }

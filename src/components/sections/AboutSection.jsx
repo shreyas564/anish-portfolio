@@ -4,6 +4,7 @@ import Section from '../Section';
 import { HiAcademicCap, HiBookOpen, HiLightBulb } from 'react-icons/hi';
 
 const icons = [HiAcademicCap, HiBookOpen, HiLightBulb];
+const iconColors = ['#0058BE', '#4C93E6', '#00152E'];
 
 export default function AboutSection({ data }) {
   const d = data || {
@@ -12,82 +13,68 @@ export default function AboutSection({ data }) {
     paragraph2: '[Add a second paragraph here]',
     profileImage: '',
     highlights: [
-      { label: 'B.Ed Student', desc: '[Add detail here]' },
-      { label: 'Second Semester', desc: '[Add detail here]' },
-      { label: 'Passionate Learner', desc: '[Add detail here]' },
+      { label: 'IKS', desc: 'Indigenous Knowledge' },
+      { label: 'MOOC', desc: 'Online Learning' },
+      { label: 'STEM', desc: 'Sci & Tech Integr.' },
     ],
   };
 
   return (
-    <Section id="about" title="About Me" subtitle="Get to know the person behind the portfolio" className="bg-[var(--bg-secondary)]">
-      <div className="about-grid">
-        {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          style={{ position: 'relative' }}
-        >
-          <div style={{
-            aspectRatio: '4/5', maxWidth: 380, margin: '0 auto',
-            borderRadius: 24, overflow: 'hidden',
-            border: '2px dashed rgba(99, 102, 241, 0.3)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: 'rgba(99, 102, 241, 0.03)',
-          }}>
-            {d.profileImage ? (
-              <img src={d.profileImage} alt={d.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: 32 }}>
-                <div style={{
-                  width: 80, height: 80, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2))',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <HiAcademicCap style={{ width: 40, height: 40, color: 'rgba(99,102,241,0.5)' }} />
+    <section id="about" className="section-wrapper" style={{ background: 'var(--bg-secondary)', borderRadius: '3rem', margin: '0 auto', maxWidth: '1280px' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:w-1/3 shrink-0"
+          >
+            <div style={{ aspectRatio: '1/1', borderRadius: '2rem', overflow: 'hidden', border: '8px solid white', boxShadow: '0 16px 48px rgba(0,0,0,0.08)' }}>
+              {d.profileImage ? (
+                <img src={d.profileImage} alt={d.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center" style={{ background: 'linear-gradient(135deg, #E6E8EA, #F2F4F6)' }}>
+                  <div className="w-20 h-20 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(0,88,190,0.1)' }}>
+                    <HiAcademicCap style={{ width: 40, height: 40, color: '#0058BE', opacity: 0.5 }} />
+                  </div>
+                  <span className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>Profile Image</span>
                 </div>
-                <span style={{ fontSize: '0.875rem', opacity: 0.6, textAlign: 'center' }}>Insert your profile image here</span>
-              </div>
-            )}
-          </div>
-          {/* Decorative */}
-          <div style={{ position: 'absolute', top: -16, right: -16, width: 96, height: 96, borderRadius: 18, background: 'linear-gradient(135deg, #6366f1, #a855f7)', opacity: 0.15, zIndex: -1 }} />
-          <div style={{ position: 'absolute', bottom: -16, left: -16, width: 128, height: 128, borderRadius: 18, background: 'linear-gradient(135deg, #a855f7, #06b6d4)', opacity: 0.12, zIndex: -1 }} />
-        </motion.div>
+              )}
+            </div>
+          </motion.div>
 
-        {/* Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Outfit', sans-serif", color: 'var(--text-primary)', marginBottom: 16 }}>
-            {d.name}
-          </h3>
-          <p style={{ color: 'var(--text-primary)', opacity: 0.7, lineHeight: 1.7, marginBottom: 12 }}>
-            {d.paragraph1}
-          </p>
-          <p style={{ color: 'var(--text-primary)', opacity: 0.6, lineHeight: 1.7, marginBottom: 32 }}>
-            {d.paragraph2}
-          </p>
+          {/* Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="md:w-2/3"
+          >
+            <h2 className="text-3xl font-bold tracking-tight mb-6" style={{ color: 'var(--navy-deep)' }}>About the Portfolio</h2>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              <p>{d.paragraph1}</p>
+              <p>{d.paragraph2}</p>
+            </div>
 
-          {/* Highlights */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
-            {d.highlights.map((item, i) => {
-              const Icon = icons[i % icons.length];
-              return (
-                <motion.div key={i} whileHover={{ y: -4 }} className="glass-card" style={{ padding: 16, textAlign: 'center' }}>
-                  <Icon style={{ width: 28, height: 28, color: '#6366f1', margin: '0 auto 8px' }} />
-                  <p style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>{item.label}</p>
-                  <p style={{ fontSize: '0.7rem', opacity: 0.5, marginTop: 4 }}>{item.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+            {/* Highlights */}
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+              {d.highlights.map((item, i) => {
+                const Icon = icons[i % icons.length];
+                return (
+                  <motion.div key={i} whileHover={{ y: -3 }} className="flex flex-col gap-1.5 p-4 rounded-xl" style={{ background: 'white', boxShadow: '0 2px 12px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.04)' }}>
+                    <Icon style={{ width: 20, height: 20, color: iconColors[i % iconColors.length] }} />
+                    <span className="text-sm font-bold" style={{ color: '#0058BE' }}>{item.label}</span>
+                    <span className="text-xs uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>{item.desc}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

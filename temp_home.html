@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduPortfolio | B.Ed Academic Showcase</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#4c93e6",
+                      "primary-container": "#1a2b3c",
+                      "surface-container-low": "#f2f4f6",
+                      "on-background": "#191c1e",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-dim": "#d8dadc",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#d4e3ff",
+                      "tertiary-fixed-dim": "#a4c9ff",
+                      "inverse-on-surface": "#eff1f3",
+                      "secondary-fixed": "#d8e2ff",
+                      "background": "#f7f9fb",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#b7c8de",
+                      "on-secondary-fixed": "#001a42",
+                      "outline": "#74777d",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "on-secondary-fixed-variant": "#004395",
+                      "on-tertiary-fixed": "#001c39",
+                      "surface-bright": "#f7f9fb",
+                      "primary-fixed-dim": "#b7c8de",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "tertiary": "#00152e",
+                      "on-primary-container": "#8192a7",
+                      "on-primary-fixed": "#0b1d2d",
+                      "primary": "#041627",
+                      "surface-tint": "#4f6073",
+                      "on-primary-fixed-variant": "#38485a",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "secondary-container": "#2170e4",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#44474c",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#004883",
+                      "on-surface": "#191c1e",
+                      "secondary": "#0058be",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c4c6cd",
+                      "primary-fixed": "#d2e4fb",
+                      "surface-container": "#eceef0",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#002a51",
+                      "on-secondary-container": "#fefcff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "md": "24px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "sidebar_width": "260px",
+                      "xl": "80px",
+                      "container_max": "1280px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "h3": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h2": ["Inter"],
+                      "h1": ["Inter"],
+                      "caption": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(210, 228, 251, 0.5), transparent),
+                        radial-gradient(circle at bottom left, rgba(232, 226, 255, 0.5), transparent);
+        }
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar (Public Center Aligned) -->
+<header class="fixed top-4 inset-x-0 mx-auto max-w-[1280px] rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md z-50 flex justify-between items-center px-8 h-14 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+<span class="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent">EduPortfolio</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-600 border-b-2 border-blue-500 pb-1 font-inter tracking-tight hover:scale-105 transition-transform duration-300" href="#">Home</a>
+<a class="text-slate-600 hover:text-blue-500 font-inter tracking-tight hover:scale-105 transition-transform duration-300" href="#">Curriculum</a>
+<a class="text-slate-600 hover:text-blue-500 font-inter tracking-tight hover:scale-105 transition-transform duration-300" href="#">Experience</a>
+<a class="text-slate-600 hover:text-blue-500 font-inter tracking-tight hover:scale-105 transition-transform duration-300" href="#">Resources</a>
+</nav>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-sm hover:opacity-90 transition-all duration-200">
+            Contact
+        </button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 hero-gradient">
+<div class="max-w-[1280px] w-full px-lg grid lg:grid-cols-2 gap-md items-center">
+<div class="flex flex-col gap-sm">
+<span class="inline-block px-4 py-1.5 bg-secondary-fixed text-on-secondary-fixed rounded-full text-caption font-bold tracking-widest uppercase mb-4">Professional Educator Portfolio</span>
+<h1 class="font-h1 text-h1 text-primary tracking-tight leading-[1.1]">
+                        B.Ed Portfolio: Shaping the <span class="text-secondary">Future</span> through Education.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        A comprehensive showcase of pedagogical research, classroom innovation, and professional development designed for modern academic excellence.
+                    </p>
+<div class="flex gap-4 mt-8">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-h3 text-label-sm hover:shadow-xl transition-all flex items-center gap-2">
+                            View Work
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="glass-card text-primary px-8 py-4 rounded-xl font-h3 text-label-sm hover:bg-white/80 transition-all">
+                            About Me
+                        </button>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="glass-card p-4 rounded-3xl relative z-10 scale-105 transform translate-x-4">
+<img alt="Collaborative learning environment" class="w-full h-[500px] object-cover rounded-2xl" data-alt="Modern university classroom with students collaborating around a large wooden table with laptops and academic books in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb-50HddhwKcuMsBERUWJ2tL1n6E3m3oCuLEY_ADZ6IOhm-29TioSzArkmZwKaJcufJFm-dzQ7dhk5y1FCQRw-EM8ofhj95FpxWJTTDXdma6O6vUm903J-_cIk4diRen7YKjXx7eWuSn7lwJHD0t-rkVMb335E_PEXFY9HFDqv0m42bUUExb81pIubMl6s0giuat9k3NXn3Hh7meM5ItQadgq7T7GnABUyzWoAq7BxS2RUG629NBunnZiZPa4e1Eem_NZDE6KMwQI"/>
+</div>
+<div class="absolute -bottom-10 -left-10 glass-card p-6 rounded-2xl z-20 flex items-center gap-4 border-blue-100">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<p class="font-bold text-primary">Class of 2024</p>
+<p class="text-caption text-on-surface-variant">Top Distinction Honors</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Stats / Features -->
+<section class="max-w-[1280px] mx-auto px-lg py-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md h-auto md:h-[400px]">
+<div class="md:col-span-2 glass-card p-8 rounded-[2rem] flex flex-col justify-end group hover:scale-[1.01] transition-transform overflow-hidden relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="psychology">psychology</span>
+</div>
+<h3 class="font-h3 text-h3 mb-2 text-primary">Pedagogical Frameworks</h3>
+<p class="text-on-surface-variant max-w-md font-body-md">Advanced integration of Bloom's Taxonomy and Vygotsky's Scaffolding in modern digital classrooms.</p>
+</div>
+<div class="bg-secondary p-8 rounded-[2rem] flex flex-col items-center justify-center text-center text-white group hover:scale-[1.01] transition-transform">
+<span class="material-symbols-outlined text-6xl mb-4" data-icon="verified_user">verified_user</span>
+<p class="text-4xl font-black mb-2">500+</p>
+<p class="font-label-sm uppercase tracking-widest opacity-80">Hours Field Practice</p>
+</div>
+<div class="glass-card p-8 rounded-[2rem] flex flex-col justify-between group hover:scale-[1.01] transition-transform">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-primary">Resource Library</h4>
+<p class="text-caption text-on-surface-variant">Curated lesson plans and teaching aids.</p>
+</div>
+</div>
+<div class="md:col-span-2 glass-card rounded-[2rem] overflow-hidden flex flex-col md:flex-row group hover:scale-[1.01] transition-transform">
+<div class="md:w-1/2">
+<img alt="Library books stack" class="w-full h-full object-cover" data-alt="A minimal stack of vintage academic journals and books in a bright modern library setting with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuWC2qRweIOlg3wX3Uw71ZRi_NJ6kyoy9Cth3iIBZW9T9SKioJFinAELSSxmscmwq01EMJss6m0ux3IHqbQFqtbgOzL1VGgj-FYCS4cvOTGWEVZ5SaY8jRQxsHVzLfyZbndOb49YAO6PmXcPyB4zB2gsE2bPOvAKBslUDrakF37PqC596AKnuD_dTph0er6bFmmMU0V97ruuKBlleO1fhcH8GYAMs1Lwgi4o-lIiiHzHwgEgb7tc8KWGTs8JqrGBN3lwizOYLaKps"/>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-center">
+<h3 class="font-h3 text-h3 mb-2 text-primary">Academic Integrity</h3>
+<p class="text-on-surface-variant font-body-md">Committed to the highest standards of ethics and inclusive education practices.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section Placeholder -->
+<section class="max-w-[1280px] mx-auto px-lg py-xl bg-surface-container-low rounded-[3rem] my-xl">
+<div class="flex flex-col md:flex-row gap-xl items-center">
+<div class="md:w-1/3">
+<div class="aspect-square rounded-[2rem] overflow-hidden relative border-8 border-white shadow-xl">
+<img alt="Educator Portrait" class="w-full h-full object-cover" data-alt="A professional portrait of a confident educator in business casual attire smiling warmly against a blurred bright workspace background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2vvSMYnIr0n2p-AU_7Ajts6R9pE1veFrQGNuB-hIngTi4jKjcBUrZgI0HNY_C9GIceAI3s3uspQaiuKjjzoU0DkNU8hQnYXLE92B3LkE-na_8QvPWnMzc2TcCvRcP-EplVokIRUvZdD0unyxmrBeIIr6Ooh9TSdLMQGE_sqLHDz8pVVQd2b6_TZfJvuzpyQPAzHQXveGkDTZlZH4gl0HGYyQErttQjNMhlubF5d4EqcTP5CCNNDqJb2gZAtXDJjcKu81IkR2PbJg"/>
+</div>
+</div>
+<div class="md:w-2/3">
+<h2 class="font-h2 text-h2 text-primary mb-6">About the Portfolio</h2>
+<div class="space-y-4 text-on-surface-variant font-body-md">
+<p>This digital space serves as a reflection of my journey through the Bachelor of Education program. It encapsulates my philosophy of 'Learning by Doing' and my dedication to fostering an inclusive classroom environment where every student thrives.</p>
+<p>From innovative curriculum design to community engagement projects, explore how academic rigor meets empathetic leadership. My approach integrates socio-cultural theory with contemporary ICT tools to prepare students for the complexities of the 21st century.</p>
+</div>
+<div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-secondary font-bold text-xl">IKS</span>
+<span class="text-caption uppercase tracking-tighter">Indigenous Knowledge</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-secondary font-bold text-xl">MOOC</span>
+<span class="text-caption uppercase tracking-tighter">Online Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-secondary font-bold text-xl">STEM</span>
+<span class="text-caption uppercase tracking-tighter">Sci &amp; Tech Integr.</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-secondary font-bold text-xl">SEL</span>
+<span class="text-caption uppercase tracking-tighter">Social Emotional</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Animated Carousel / Showcase Placeholder -->
+<section class="py-xl">
+<div class="max-w-[1280px] mx-auto px-lg mb-md">
+<h2 class="font-h2 text-h2 text-primary">Featured Case Studies</h2>
+</div>
+<div class="flex gap-md px-lg overflow-x-auto pb-8 snap-x no-scrollbar">
+<!-- Project Card 1 -->
+<div class="min-w-[320px] md:min-w-[450px] aspect-[4/5] glass-card rounded-[2.5rem] overflow-hidden snap-center group">
+<img alt="Classroom project" class="w-full h-2/3 object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A colorful primary school classroom wall covered in student drawings and educational posters with soft sunlight streaming in" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJosojxGxtSTy_C-EoBpGWTDOny-1zMxj5GEKsMnMtqw_O_3TwV9JJKx3Z5m3gDRvrMwziBLfcDoqeSEW0-81KQ8WsEyuVNXUmzPI0vhM-TrFWqBQdnxkVHPvlc86W10U3qsqdnoSQMeO0w_UTyQuwZWBxLgP4lsrMYfSKpbfTohUca0rCi5_BcRXk9QgrkBPUz_VT-NDflBsyDXDDXMTY__wzaf-tLcEfSpsAP3EsGuzMzcuC-ddxVgdJgLbLVPMQS1N618jy4pU"/>
+<div class="p-8">
+<span class="text-secondary font-bold text-caption uppercase tracking-widest">Case Study 01</span>
+<h4 class="text-h3 font-h3 text-primary mt-2">Differentiated Instruction</h4>
+<p class="text-on-surface-variant mt-2">Personalizing learning paths for diverse neuro-educational needs.</p>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="min-w-[320px] md:min-w-[450px] aspect-[4/5] glass-card rounded-[2.5rem] overflow-hidden snap-center group">
+<img alt="Digital Literacy" class="w-full h-2/3 object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close up of a tablet displaying educational software being used by a child in a brightly lit learning space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPD0X9rdCgT6jXTYMdgipYf5AfC2S8EWPe6YkYk71ZFCnUAT8J4c2lOD6bLD4b4UoLMU8SRiVzlf9mn-EU4OouQ1axihBp9bURbbAljliM90zyynVxLDzjo5Ratf5EA8wp3F4xgR8guNjVGmtjbk0dWHSnVemFsMjAstusuLX969edX21gQDUN9XFBiaSzJWNSxNlBYX9zy8mcQ3zcZyytnYOP8yn_G49G7hcCyrm1FXGkA86N_R3XJfIA2Hvz-ri_X25qCJyQgI"/>
+<div class="p-8">
+<span class="text-secondary font-bold text-caption uppercase tracking-widest">Case Study 02</span>
+<h4 class="text-h3 font-h3 text-primary mt-2">E-Learning Integration</h4>
+<p class="text-on-surface-variant mt-2">Flipping the classroom: ICT strategies for high-engagement biology.</p>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="min-w-[320px] md:min-w-[450px] aspect-[4/5] glass-card rounded-[2.5rem] overflow-hidden snap-center group">
+<img alt="Community project" class="w-full h-2/3 object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A group of diverse students planting a community garden under the guidance of a teacher during a sunny afternoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSL8evRh259fh7PAppm0ZVx1Aivi2Uzc9Xk9Ht9qRtSyMatgr0lUTahiecxKI2GIjmmdf0v4K2oJM1mhliZrnx9MxX0QbQEp3xZs2QogySWuvHOpbTrOCmqSxqfC56XM-zo84h7cMY2At9qZymNuPctPhIKwYRl-_bRWSKvav_Fv5xqy7EEvGW31siMgn0hQqCf4EcoZ-nhWoi6nfkEjjnjVGqhVuu9yt3HXqsvsYWoMsElqCnImeplIX8lnVmUVzgptH1BZx5mmA"/>
+<div class="p-8">
+<span class="text-secondary font-bold text-caption uppercase tracking-widest">Case Study 03</span>
+<h4 class="text-h3 font-h3 text-primary mt-2">Service Learning</h4>
+<p class="text-on-surface-variant mt-2">Bridging the gap between theory and community impact projects.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 border-t border-slate-100 py-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8">
+<div class="mb-6 md:mb-0">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+<span class="text-sm font-bold text-slate-900">EduPortfolio System</span>
+</div>
+<p class="text-xs uppercase tracking-widest text-slate-500">© 2024 Educational Portfolio System. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-all duration-200 underline-offset-4 hover:underline decoration-blue-500" href="#">Privacy Policy</a>
+<a class="text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-all duration-200 underline-offset-4 hover:underline decoration-blue-500" href="#">Terms of Service</a>
+<a class="text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-all duration-200 underline-offset-4 hover:underline decoration-blue-500" href="#">Faculty Portal</a>
+</div>
+</div>
+</footer>
+</body></html>

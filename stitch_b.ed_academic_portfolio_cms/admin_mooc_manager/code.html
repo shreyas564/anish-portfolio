@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOOC Analysis Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#b7c8de",
+                        "on-secondary-fixed": "#001a42",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#1a2b3c",
+                        "surface-container-low": "#f2f4f6",
+                        "outline-variant": "#c4c6cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#4f6073",
+                        "surface-dim": "#d8dadc",
+                        "primary": "#041627",
+                        "on-surface-variant": "#44474c",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fefcff",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#002a51",
+                        "tertiary-fixed": "#d4e3ff",
+                        "secondary-container": "#2170e4",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#0b1d2d",
+                        "inverse-on-surface": "#eff1f3",
+                        "background": "#f7f9fb",
+                        "secondary": "#0058be",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#4c93e6",
+                        "primary-fixed": "#d2e4fb",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-primary-fixed-variant": "#38485a",
+                        "tertiary": "#00152e",
+                        "primary-fixed-dim": "#b7c8de",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "on-primary-container": "#8192a7",
+                        "outline": "#74777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar_width": "260px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "container_max": "1280px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h3": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md flex h-screen overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- NavigationDrawer (Admin Sidebar) -->
+<nav class="w-[260px] h-full fixed left-0 top-0 border-r border-slate-700 shadow-xl bg-[#1A2B3C] flex flex-col hidden md:flex z-50">
+<!-- Profile Header -->
+<div class="p-6 border-b border-slate-700/50 flex flex-col items-start gap-4">
+<img alt="Admin Portrait" class="w-16 h-16 rounded-full border-2 border-blue-500/30 object-cover shadow-lg" data-alt="Professional headshot of an executive administrator in a modern office, sharp focus, natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb98o5v2BSoskT0Z-sdbZqnOgn04I9TzBE1r98g_uVScIl_qsYqpR1KY_dZ_CNrJhC3jtXTZ2QNf1RJNKCMmqbNLCLjuXvqMrLVKIQy_a540lhr1YDIPyB6YcywM4vS2NQ38v7C3GYUXeIImBcjsOsQzGJAEiJW4CB1RmNlqEwIKlAvjNvu_zsQdMN1Gj5vEXuAq7C54wnAMtbmKHxbPjHSQBlrhcvqHHvcyUEqbp9JNBhyaqZ8y2EqUEqCTC8xG7IpY_2VYUdMPU"/>
+<div>
+<h2 class="text-white font-bold tracking-tight text-lg">Academic Registrar</h2>
+<p class="font-['Inter'] text-sm font-medium text-slate-400">Global University System</p>
+<span class="inline-block mt-1 px-2 py-0.5 rounded text-xs font-semibold bg-slate-800 text-slate-300">Admin Panel</span>
+</div>
+</div>
+<!-- Nav Links -->
+<div class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">school</span>
+                Student Records
+            </a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white bg-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.3)] border-l-4 border-blue-400 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl text-blue-400">auto_stories</span>
+                Academic Content
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">visibility</span>
+                Portfolio Review
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+                User Management
+            </a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 md:ml-sidebar_width h-full relative">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 border-b border-white/40 dark:border-slate-800 shadow-sm shadow-blue-500/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 -ml-2 text-slate-600 hover:opacity-80 transition-opacity cursor-pointer active:opacity-70 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-black text-[#1A2B3C] dark:text-blue-400 font-['Inter']">Academic Portfolio System</h1>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden cursor-pointer active:opacity-70 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">domain</span>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="flex-1 overflow-y-auto p-4 md:p-md lg:p-lg w-full max-w-container_max mx-auto pb-24 md:pb-lg">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h2 class="font-h2 text-h2 text-on-background mb-1">MOOC Analysis Manager</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage and curate massive open online courses data.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-outline hover:bg-surface-container-low transition-colors font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Data
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors shadow-sm font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Add New Course
+                    </button>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col sm:flex-row gap-4 mb-6">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md placeholder:text-on-surface-variant transition-all" placeholder="Search courses, platforms, or key points..." type="text"/>
+</div>
+<div class="relative min-w-[180px]">
+<select class="w-full pl-4 pr-10 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:border-secondary outline-none font-body-md text-body-md appearance-none cursor-pointer">
+<option value="">All Platforms</option>
+<option value="coursera">Coursera</option>
+<option value="edx">edX</option>
+<option value="mit">MIT OpenCourseWare</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Data Table Container (Admin Elevation Style) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="border-b-2 border-secondary bg-surface-container-lowest">
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant font-semibold">Course Name</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant font-semibold">Platform</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant font-semibold w-1/3">Description</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant font-semibold">Key Points</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold">Machine Learning Specialization</p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">ID: MOOC-1042</p>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 font-caption text-caption font-medium">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                                        Coursera
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2">A foundational program teaching modern machine learning concepts, supervised and unsupervised learning, and neural networks.</p>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">AI</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">Python</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">+2</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-secondary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold">Introduction to Computer Science</p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">ID: MOOC-0891</p>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-caption text-caption font-medium">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+                                        edX
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2">CS50x teaches students how to think algorithmically and solve problems efficiently using C, Python, SQL, and JavaScript.</p>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">Algorithms</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">C</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-secondary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold">Data Science Ethics</p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">ID: MOOC-2105</p>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 font-caption text-caption font-medium">
+<span class="material-symbols-outlined text-[14px]">school</span>
+                                        Coursera
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<p class="font-body-md text-body-md text-on-surface line-clamp-2">Explores the ethical, legal, and social implications of data science, algorithms, and artificial intelligence in modern society.</p>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">Ethics</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-caption text-caption">Data Privacy</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-secondary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer -->
+<div class="px-6 py-4 border-t border-surface-variant bg-surface-container-lowest flex items-center justify-between">
+<p class="font-caption text-caption text-on-surface-variant">Showing 1-3 of 42 courses</p>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1.5 rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="flex justify-around items-center h-16 px-4 pb-safe fixed bottom-0 w-full rounded-t-2xl z-50 border-t border-white/20 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 font-['Inter'] text-[10px] font-bold p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 font-['Inter'] text-[10px] font-bold p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">folder_shared</span>
+            Portfolio
+        </a>
+<!-- Active State -->
+<a class="flex flex-col items-center justify-center text-blue-600 bg-blue-50 dark:bg-blue-900/30 rounded-xl px-4 py-1 scale-110 transition-transform duration-300 font-['Inter'] text-[10px] font-bold" href="#">
+<span class="material-symbols-outlined mb-1 text-blue-600">school</span>
+            MOOCs
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 font-['Inter'] text-[10px] font-bold p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1">movie</span>
+            IKS
+        </a>
+</nav>
+</body></html>

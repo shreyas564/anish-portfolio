@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOOC Portfolio Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#004395",
+                      "inverse-primary": "#b7c8de",
+                      "on-secondary-fixed": "#001a42",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#a4c9ff",
+                      "on-background": "#191c1e",
+                      "primary-container": "#1a2b3c",
+                      "surface-container-low": "#f2f4f6",
+                      "outline-variant": "#c4c6cd",
+                      "surface-container-high": "#e6e8ea",
+                      "on-surface": "#191c1e",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#4f6073",
+                      "surface-dim": "#d8dadc",
+                      "primary": "#041627",
+                      "on-surface-variant": "#44474c",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#fefcff",
+                      "surface-variant": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#002a51",
+                      "tertiary-fixed": "#d4e3ff",
+                      "secondary-container": "#2170e4",
+                      "inverse-surface": "#2d3133",
+                      "surface-bright": "#f7f9fb",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "on-primary-fixed": "#0b1d2d",
+                      "inverse-on-surface": "#eff1f3",
+                      "background": "#f7f9fb",
+                      "secondary": "#0058be",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-tertiary-container": "#4c93e6",
+                      "primary-fixed": "#d2e4fb",
+                      "surface": "#f7f9fb",
+                      "on-tertiary-fixed": "#001c39",
+                      "on-primary-fixed-variant": "#38485a",
+                      "tertiary": "#00152e",
+                      "primary-fixed-dim": "#b7c8de",
+                      "on-tertiary-fixed-variant": "#004883",
+                      "on-primary-container": "#8192a7",
+                      "outline": "#74777d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sidebar_width": "260px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "container_max": "1280px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "h2": ["Inter"],
+                      "caption": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "h3": ["Inter"],
+                      "h1": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(4, 22, 39, 0.05);
+        }
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 227, 255, 0.4) 0%, rgba(247, 249, 251, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden relative">
+<div class="ambient-glow top-[-100px] left-[-100px]"></div>
+<div class="ambient-glow bottom-[20%] right-[-200px]" style="background: radial-gradient(circle, rgba(216, 226, 255, 0.3) 0%, rgba(247, 249, 251, 0) 70%);"></div>
+<header class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md sticky top-0 w-full z-40 border-b border-white/40 dark:border-slate-800 shadow-sm shadow-blue-500/10 hidden md:block">
+<div class="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:opacity-70 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" style="font-variation-settings: 'FILL' 0;">menu</span>
+<span class="text-xl font-black text-[#1A2B3C] dark:text-blue-400 font-['Inter']">Academic Portfolio System</span>
+</div>
+<nav class="flex gap-8 items-center font-['Inter'] text-lg font-semibold">
+<a class="text-slate-600 dark:text-slate-400 hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:opacity-80 transition-opacity" href="#">Portfolio</a>
+<a class="text-blue-600 font-bold hover:opacity-80 transition-opacity" href="#">MOOCs</a>
+<a class="text-slate-600 dark:text-slate-400 hover:opacity-80 transition-opacity" href="#">IKS</a>
+</nav>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-label-sm overflow-hidden cursor-pointer active:opacity-70 hover:opacity-80 transition-opacity">
+<img alt="Institution Logo" class="w-full h-full object-cover" data-alt="minimalist abstract geometric logo for an educational institution in shades of navy blue and white on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPRVvFTwjHw_BKrGKxV4_KKQ-cpXW5bHidQFG4frFnbyzyXM6jbGhlRKgqHZcfqAy1so_6Qkys1FNH05RWrk7gsHuitMinLTwzb3jEZ6btQ0QPB1Xu_RpF3HGmlosi9wJZGUS1YyAuWuCxz1t7Ylyyf7MkejqgMgo96cpEtcJ6AzD8IkJtpbLP1zZVtFdAVsCz-tVaDLMBzoYd-_WgqBswaj59toV8DMktqk2TLh9vfIaQ6VrbRvMlDD6JrVHuUksEJZBqirxIOyc"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-6 py-12 md:py-xl space-y-md md:space-y-lg z-10">
+<section class="flex flex-col gap-sm mb-lg">
+<h1 class="font-h1 text-h1 text-primary">Continuous Learning Journey</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">An analytical overview of completed massive open online courses, platform engagement, and acquired competencies.</p>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg">
+<div class="md:col-span-8 glass-card rounded-xl p-md md:p-lg flex flex-col justify-between hover:scale-[1.01] transition-transform duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-fixed/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-lg relative z-10">
+<div>
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full mb-sm">Featured Certification</span>
+<h2 class="font-h2 text-h2 text-primary mb-xs">Machine Learning Specialization</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">school</span>
+                            Stanford University via Coursera
+                        </p>
+</div>
+<div class="hidden sm:flex flex-col items-end">
+<span class="font-h3 text-h3 text-secondary">98%</span>
+<span class="font-label-sm text-label-sm text-outline">Final Grade</span>
+</div>
+</div>
+<div class="relative w-full h-64 rounded-lg overflow-hidden mb-lg z-10">
+<img alt="Machine Learning Course" class="w-full h-full object-cover" data-alt="close up of complex data visualization graphics and code on a modern monitor screen in a well lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiECA2gIab0HqrwN8y42ehfBmY4OBfDw1BjgghnsmxEj0Zyf36mqh-2zhKSmVB3y6okFgjjoXq8wAyETGRcCxCvwgnS7x-F4xDr9ol0duLVrwmXHwqRG1hkJ0wlo-zCqweEMQ_ldsFngVLC3gdo3JyoQ_I1DPXWUcwVQAgZ7s8i8NO5jDpxlPV3nsZTBPcqw9JQQnCEAJS_FHp7VqjpIbGpW8cbVu75tx5_mmY7sz_N7W8cQ9HAHPXeobu3_u1f02gNCjTBabFrl8"/>
+</div>
+<div class="flex flex-col sm:flex-row gap-md justify-between items-end relative z-10">
+<div class="w-full sm:w-2/3">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-2">
+<span>Progress</span>
+<span>Completed</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-full rounded-full"></div>
+</div>
+</div>
+<button class="w-full sm:w-auto px-6 py-3 bg-white/40 backdrop-blur-md border border-white/60 text-primary font-label-sm text-label-sm font-semibold rounded-lg hover:bg-white/60 transition-colors flex items-center justify-center gap-2 shadow-sm">
+                        View Certificate
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col gap-md md:gap-lg">
+<div class="glass-card rounded-xl p-md md:p-lg flex-1 hover:scale-[1.02] transition-transform duration-300">
+<h3 class="font-h3 text-h3 text-primary mb-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                        Impact Metrics
+                    </h3>
+<div class="grid grid-cols-2 gap-sm mb-md">
+<div class="flex flex-col">
+<span class="font-h1 text-h1 text-primary">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Courses Completed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h1 text-h1 text-primary">320<span class="font-h3 text-h3 text-outline">+</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hours Logged</span>
+</div>
+</div>
+<div class="h-px w-full bg-surface-variant my-md"></div>
+<div>
+<span class="font-label-sm text-label-sm text-outline block mb-3">Platform Distribution</span>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Coursera</span>
+<div class="w-1/2 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[60%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">edX</span>
+<div class="w-1/2 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[30%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Udacity</span>
+<div class="w-1/2 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[10%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 glass-card rounded-xl p-md md:p-lg hover:scale-[1.01] transition-transform duration-300">
+<h3 class="font-h3 text-h3 text-primary mb-md">Key Competencies</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-surface-container-highest/50 border border-white/50 rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">data_object</span> Data Science
+                    </span>
+<span class="px-4 py-2 bg-surface-container-highest/50 border border-white/50 rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">psychology</span> AI Ethics
+                    </span>
+<span class="px-4 py-2 bg-surface-container-highest/50 border border-white/50 rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">architecture</span> Cloud Architecture
+                    </span>
+<span class="px-4 py-2 bg-surface-container-highest/50 border border-white/50 rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">code</span> Python
+                    </span>
+<span class="px-4 py-2 bg-surface-container-highest/50 border border-white/50 rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">query_stats</span> Statistical Analysis
+                    </span>
+</div>
+</div>
+<div class="md:col-span-7 glass-card rounded-xl p-md md:p-lg overflow-hidden relative">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3 text-primary">Recent Certifications</h3>
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                        View All <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 snap-x hide-scrollbar" style="scrollbar-width: none;">
+<div class="min-w-[240px] flex-shrink-0 bg-white/40 border border-white/60 rounded-lg p-sm snap-start">
+<div class="w-full h-32 bg-surface-variant rounded mb-sm overflow-hidden">
+<img alt="Certificate 1" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="minimalist abstract graphic of a graduation certificate with a subtle gold seal on a clean white desk background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByw-1dfaAm9LpZODRjBZNYmE1pLL3empMW2X7FSqhxgUdjxpBYwr_ZHFdxMAH9XHGVu8F9SfdilkSkLeTJ9fTxIU3YP1jz7Q7yiSz6JmDUNz8L9-0fTCq88MdmptG2SdfC0Lpqul2eJThPHgpszz21l-4C-xEo8VIADVbnH9Yqhbk_FKhHKv1uEDDbX80TSFIWYW4ekfXaqhvt39gBc8EYFarFark_NGkS-p9r90HLNX68lIRNYtD2QUyaQCWJtfrOUgOYprduoxw"/>
+</div>
+<h4 class="font-label-sm text-label-sm font-semibold text-primary truncate">Data Visualization</h4>
+<p class="font-caption text-caption text-on-surface-variant">IBM</p>
+</div>
+<div class="min-w-[240px] flex-shrink-0 bg-white/40 border border-white/60 rounded-lg p-sm snap-start">
+<div class="w-full h-32 bg-surface-variant rounded mb-sm overflow-hidden">
+<img alt="Certificate 2" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="clean minimalist representation of financial data charts and graphs on a light blue background indicating a business certificate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuRRlOjZUhdiI78ut2vHNcCEa792gfFuBtQmfd3PyihFo5wPzenM9sHCE1mU17XbT6p-3avbbRS-wjBLleQcOcouayp7VVxMe7nDxTb84g1txj5pw1xAtcF9Flj5x-jA44o8Ogh6UvKXd_LnGBnAOLjUrXNZ79Vh8RQ-dTFxvOdPaRQwJA9HCvhQV4VExzvqLt0Rfjb2xw3oz4dkkP5cVLvHDqm1Eu2Q4GtfX4gaRuO6qTqFxbyzG_isyh3iGimn1GU6wtm_35XcY"/>
+</div>
+<h4 class="font-label-sm text-label-sm font-semibold text-primary truncate">Financial Engineering</h4>
+<p class="font-caption text-caption text-on-surface-variant">Columbia University</p>
+</div>
+<div class="min-w-[240px] flex-shrink-0 bg-white/40 border border-white/60 rounded-lg p-sm snap-start">
+<div class="w-full h-32 bg-surface-variant rounded mb-sm overflow-hidden flex items-center justify-center bg-primary-fixed/30">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 0;">verified</span>
+</div>
+<h4 class="font-label-sm text-label-sm font-semibold text-primary truncate">Agile Management</h4>
+<p class="font-caption text-caption text-on-surface-variant">Google</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center px-12 max-w-[1280px] mx-auto gap-8 z-10 pb-24 md:pb-12">
+<div class="text-lg font-bold text-slate-800 dark:text-slate-200 font-['Inter']">
+            Global Education Portfolio System
+        </div>
+<div class="flex gap-6">
+<a class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline-offset-4" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline-offset-4" href="#">Contact Support</a>
+<a class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline-offset-4" href="#">Alumni Portal</a>
+</div>
+<div class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            © 2024 Global Education Portfolio System. All Rights Reserved.
+        </div>
+</footer>
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl fixed bottom-0 w-full rounded-t-2xl z-50 border-t border-white/20 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] flex justify-around items-center h-16 px-4 pb-safe md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 w-16 h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-['Inter'] text-[10px] font-bold mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 w-16 h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">folder_shared</span>
+<span class="font-['Inter'] text-[10px] font-bold mt-1">Portfolio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-blue-600 bg-blue-50 dark:bg-blue-900/30 rounded-xl px-4 py-1 hover:bg-slate-100/50 scale-110 transition-transform duration-300 w-16 h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-['Inter'] text-[10px] font-bold mt-1">MOOCs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100/50 scale-110 transition-transform duration-300 w-16 h-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">movie</span>
+<span class="font-['Inter'] text-[10px] font-bold mt-1">IKS</span>
+</button>
+</nav>
+</body></html>

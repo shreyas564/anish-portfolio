@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IKS Content Manager - Academic Portfolio System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#b7c8de",
+                        "on-secondary-fixed": "#001a42",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#a4c9ff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#1a2b3c",
+                        "surface-container-low": "#f2f4f6",
+                        "outline-variant": "#c4c6cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#4f6073",
+                        "surface-dim": "#d8dadc",
+                        "primary": "#041627",
+                        "on-surface-variant": "#44474c",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fefcff",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#002a51",
+                        "tertiary-fixed": "#d4e3ff",
+                        "secondary-container": "#2170e4",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#0b1d2d",
+                        "inverse-on-surface": "#eff1f3",
+                        "background": "#f7f9fb",
+                        "secondary": "#0058be",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#4c93e6",
+                        "primary-fixed": "#d2e4fb",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-primary-fixed-variant": "#38485a",
+                        "tertiary": "#00152e",
+                        "primary-fixed-dim": "#b7c8de",
+                        "on-tertiary-fixed-variant": "#004883",
+                        "on-primary-container": "#8192a7",
+                        "outline": "#74777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar_width": "260px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "container_max": "1280px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h3": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden antialiased">
+<!-- NavigationDrawer -->
+<aside class="w-[260px] h-full fixed left-0 top-0 bg-[#1A2B3C] border-r border-slate-700 shadow-xl flex flex-col z-50">
+<div class="p-6 border-b border-slate-700/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-600 overflow-hidden flex-shrink-0">
+<img alt="Admin Portrait" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling administrator in a well-lit office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU3lF8OhGfffRdNlUFOtD4S3dypuuQjoMA7TsKxgTh9ixx2LLoNKuDY7lzGTE6lR0j8BVbBtY_wG35X_0yOSrMYXMquUcFTfP2s1a2GiaGPgmzD_-ISp5605C3YAw6rKLI9SRa47Y0wjBzA3KtSyYsONbe341rC0fiVR34LC2nwgpdd44IK6F3yzEp_7pGVzsSKBO6LKcYjPaREoPl-BPqW20jRrBkm0CWE4N0dVZU_gn0O8O31anF7JPovxuXWGTJDP6nZDHAhOQ"/>
+</div>
+<div>
+<h2 class="text-white font-bold tracking-tight text-sm">Academic Registrar</h2>
+<p class="text-slate-400 text-xs">Global University System</p>
+</div>
+</div>
+<div class="mt-4 px-2 py-1 bg-slate-800/50 rounded inline-block">
+<span class="text-[10px] uppercase tracking-wider text-slate-300 font-medium">Admin Panel</span>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-200 transition-colors">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-200 transition-colors">school</span>
+                Student Records
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-white bg-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.3)] border-l-4 border-blue-400 scale-95 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined text-[20px] text-blue-400" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                Academic Content
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-200 transition-colors">visibility</span>
+                Portfolio Review
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-200 transition-colors">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-md font-['Inter'] text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors duration-200 scale-95 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-slate-200 transition-colors">group</span>
+                User Management
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[260px] flex flex-col h-screen overflow-y-auto relative bg-background">
+<!-- TopAppBar -->
+<header class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md sticky top-0 w-full z-40 border-b border-white/40 dark:border-slate-800 shadow-sm shadow-blue-500/10">
+<div class="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 text-slate-600 dark:text-slate-400 hover:opacity-80 transition-opacity cursor-pointer active:opacity-70 hidden lg:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-['Inter'] text-lg font-semibold text-slate-900 dark:text-white">Academic Portfolio System</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#1A2B3C] dark:text-blue-400">Institution Logo</span>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-lg max-w-container_max mx-auto w-full flex-1 flex flex-col gap-md">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface">IKS Content Manager</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage carousel slides and video content for the Indian Knowledge Systems showcase.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-md py-sm rounded bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors border border-outline-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">preview</span>
+                        Preview Live
+                    </button>
+<button class="flex items-center gap-2 px-md py-sm rounded bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New Slide
+                    </button>
+</div>
+</div>
+<!-- Editor Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-md items-start">
+<!-- Left Panel: Content List (Bento style grid instead of pure list) -->
+<div class="xl:col-span-4 flex flex-col gap-sm">
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="p-sm border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Active Slides (4)</span>
+<span class="material-symbols-outlined text-outline text-[18px]">sort</span>
+</div>
+<div class="flex-1 overflow-y-auto max-h-[600px] p-2 flex flex-col gap-2">
+<!-- Active Item -->
+<div class="flex items-start gap-3 p-3 rounded bg-primary-fixed border border-primary-fixed-dim cursor-pointer group transition-colors">
+<div class="w-16 h-12 bg-surface-variant rounded overflow-hidden flex-shrink-0 relative">
+<img alt="Vedic Mathematics" class="w-full h-full object-cover" data-alt="Close up view of ancient Indian mathematical manuscripts with geometric diagrams illuminated by warm sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpEPhXpouc8qsKlWdm4Lb3XbySDeZ1eIRKXyUJgvHPf7Su8oEzcZ3x8oTr87kak58fadxesOfDxUpzljgCAPe0z4StEjQYDGHWleI17qh1JEpR28NXxOzJJLYjvqbNjxLtJYH2I5cACIcdsdbX2sl_WTnyxi0L58cwIBfUFKhmmAHmC5xgwFvIzpatxrOojhSrZfkEW7vf4YHrQRGFD5sKmbb9fJS_h76l9dKULEEz812LOu5Gt1phREUJ1cC-XWnJLP6xAPxkklg"/>
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-sm text-label-sm text-on-primary-fixed font-semibold truncate">Vedic Mathematics Legacy</h4>
+<p class="font-caption text-caption text-on-primary-fixed-variant truncate mt-0.5">Historical overview of computation...</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-caption text-caption text-on-primary-fixed-variant text-[10px] uppercase tracking-wider">Published</span>
+</div>
+</div>
+</div>
+<!-- Inactive Item -->
+<div class="flex items-start gap-3 p-3 rounded hover:bg-surface-container-low border border-transparent cursor-pointer group transition-colors">
+<div class="w-16 h-12 bg-surface-variant rounded overflow-hidden flex-shrink-0 relative">
+<div class="absolute inset-0 flex items-center justify-center bg-surface-tint/10 text-surface-tint">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+</div>
+<img alt="Ayurveda Overview" class="w-full h-full object-cover opacity-80" data-alt="Traditional Ayurvedic mortar and pestle with fresh green herbs and colorful spices on a rustic wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAECHTi31t2S2rBxLiwPjH9cTx9lAy93E0kIlDAhBvpqdjI5VY8nblxAqYrr6Ifs-FQd0Sbycyi53i_5IEsSxFsvx_QhUS7H3NFhcKhd-L9bHJ05lO1UF4D8G6F5-jkP5xgru3O1_3Q3LpEi--snhGj0CAbZ75Zwc2OL-Z310vo20MopS3pUhtvzljje2ZexFAdl0i7XeiRqwAjhkYvX69ncJK39_vvWgV2JBhSTXjkcprfKylTXCSTZS-hWGBIz9jDVFIr_O9sXM"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-sm text-label-sm text-on-surface font-medium truncate group-hover:text-secondary transition-colors">Foundations of Ayurveda</h4>
+<p class="font-caption text-caption text-on-surface-variant truncate mt-0.5">Video documentary on holistic...</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-caption text-caption text-on-surface-variant text-[10px] uppercase tracking-wider">Published</span>
+</div>
+</div>
+</div>
+<!-- Inactive Item -->
+<div class="flex items-start gap-3 p-3 rounded hover:bg-surface-container-low border border-transparent cursor-pointer group transition-colors">
+<div class="w-16 h-12 bg-surface-variant rounded overflow-hidden flex-shrink-0 relative">
+<img alt="Ancient Architecture" class="w-full h-full object-cover opacity-80" data-alt="Intricate stone carvings on an ancient Indian temple pillar capturing deep shadows and historical details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBswIEU8UfHjxrwjB60SiEoH83K813-cC7hUQ_h5jEk1E-IIrRshVtIsXgrS_6UAspwAaDLPYTR3FhhR3fjCLH-bqo333rBijuFoN57Hg5ottHxcQ-3veJwi_Bumukz5gQI5LXfSZU65m5nO9Z4P08C2sWu6fjUB4_k9ypBi5I_1GIpZ9oh-i9dsXdKG_ecDjsR2tzAMBlmqIua2B2SUZMAYalSQW3_di-k2Q8SkU3qg7IWrIooV5I77kBAP7lwC6rdemi5z1VNEs"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-sm text-label-sm text-on-surface font-medium truncate group-hover:text-secondary transition-colors">Temple Architecture Specs</h4>
+<p class="font-caption text-caption text-on-surface-variant truncate mt-0.5">Engineering marvels of the Chola...</p>
+<div class="flex items-center gap-1 mt-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-caption text-caption text-on-surface-variant text-[10px] uppercase tracking-wider">Draft</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface-container-lowest flex justify-center">
+<button class="font-label-sm text-label-sm text-secondary hover:text-secondary-container transition-colors">Load More</button>
+</div>
+</div>
+</div>
+<!-- Right Panel: Editor & Preview -->
+<div class="xl:col-span-8 flex flex-col gap-md">
+<!-- Editor Form -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm p-md flex flex-col gap-md">
+<div class="flex justify-between items-center border-b border-outline-variant pb-sm">
+<h3 class="font-h3 text-h3 text-on-surface">Edit Content Slide</h3>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded text-[10px] font-bold uppercase tracking-wide">ID: IKS-092</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Slide Title</label>
+<input class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary bg-surface font-body-md text-body-md text-on-surface px-3 py-2" type="text" value="Vedic Mathematics Legacy"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Content Type</label>
+<select class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary bg-surface font-body-md text-body-md text-on-surface px-3 py-2">
+<option>Image Slide</option>
+<option>Video Player</option>
+<option>Interactive Model</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Description / Caption</label>
+<textarea class="w-full rounded border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary bg-surface font-body-md text-body-md text-on-surface px-3 py-2 resize-none" rows="3">Historical overview of computational algorithms and mathematical proofs derived from ancient Vedic texts, highlighting their relevance in modern cryptographic systems.</textarea>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface flex justify-between">
+<span>Media Assets</span>
+<span class="text-on-surface-variant font-normal">1920x1080 recommended</span>
+</label>
+<div class="w-full h-[240px] rounded-lg border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center relative group overflow-hidden cursor-pointer hover:bg-surface-variant transition-colors">
+<!-- Existing Image Overlay -->
+<img alt="Vedic Mathematics Banner" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-30 transition-opacity" data-alt="Wide angle view of ancient Indian mathematical manuscripts with geometric diagrams illuminated by warm sunlight on a rustic wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUiloDZvny_3U7Wp18cAdmLRjs43IEOXbl_6NKbEKfphTHyuSMzIjc6uAsp8G3baWzwfULu2QSO_4WLWLZYv79QTsqa-OKNsniScwUEL45YiYHvB5Xz8IsLeabyr96XNSOz05pWHrf7QfTOIon2SPenZia_1N2R4DSg3O7RMd6HsmU1uwRWcnH11Gs062MRSZ_nKEUDaDdZYynFFe6JyrZYC_nz8jDpDCiI4wckjzrtS7KJZaEAJ1n9oL_Lf67bygHeMJP17Jyo8c"/>
+<div class="z-10 flex flex-col items-center gap-2 bg-surface/80 p-4 rounded-lg backdrop-blur-sm border border-outline/20">
+<span class="material-symbols-outlined text-[32px] text-secondary">cloud_upload</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Replace Media</span>
+<span class="font-caption text-caption text-on-surface-variant">Drag and drop or click to browse</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3 pt-sm border-t border-outline-variant mt-sm">
+<button class="px-md py-sm rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-label-sm text-label-sm">Discard Changes</button>
+<button class="px-md py-sm rounded bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors font-label-sm text-label-sm shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                                Save Content
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="py-12 text-center">
+<p class="font-['Inter'] text-xs uppercase tracking-wider text-slate-500">© 2024 Global Education Portfolio System. All Rights Reserved.</p>
+</div>
+</div>
+</main>
+</body></html>
