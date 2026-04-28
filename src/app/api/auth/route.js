@@ -11,8 +11,13 @@ async function getContent() {
     return redisContent;
   }
   
-  const raw = fs.readFileSync(CONTENT_PATH, 'utf-8');
-  return JSON.parse(raw);
+  try {
+    const raw = fs.readFileSync(CONTENT_PATH, 'utf-8');
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error('Failed to read local content.json:', err);
+    return { admin: { password: 'admin' } }; // Basic fallback if needed, or null
+  }
 }
 
 export async function POST(request) {

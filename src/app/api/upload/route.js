@@ -19,9 +19,14 @@ async function getAdminPassword() {
     return redisContent.admin.password;
   }
   
-  const contentPath = path.join(process.cwd(), 'data', 'content.json');
-  const content = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
-  return content.admin?.password;
+  try {
+    const contentPath = path.join(process.cwd(), 'data', 'content.json');
+    const content = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+    return content.admin?.password;
+  } catch (err) {
+    console.error('Failed to read local content.json:', err);
+    return null;
+  }
 }
 
 export async function POST(request) {
@@ -53,6 +58,10 @@ export async function POST(request) {
       });
       return NextResponse.json({ success: true, url: blob.url, fileName });
     } else {
+      if (process.env.VERCEL) {
+        return NextResponse.json({ error: 'Vercel Blob Storage is not configured. File uploads require BLOB_READ_WRITE_TOKEN environment variable.' }, { status: 500 });
+      }
+
       // Local Fallback
       ensureDir(UPLOAD_DIR);
       const categoryDir = path.join(UPLOAD_DIR, category);
