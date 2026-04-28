@@ -18,12 +18,16 @@ export default function FileUpload({ value, onChange, password, category = 'gene
     try {
       const res = await fetch('/api/upload', { method: 'POST', body: formData });
       const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Upload failed');
+      }
       if (data.url) {
         setPreview(data.url);
         onChange(data.url);
       }
     } catch (err) {
       console.error('Upload failed:', err);
+      alert('Upload Error: ' + err.message);
     }
     setUploading(false);
   };
