@@ -36,7 +36,7 @@ export default function AdminPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const loadContent = async () => {
-    try { const res = await fetch('/api/content'); setContent(await res.json()); } catch {}
+    try { const res = await fetch('/api/content', { cache: 'no-store' }); setContent(await res.json()); } catch {}
     setLoading(false);
   };
   useEffect(() => { if (password) loadContent(); }, [password]);

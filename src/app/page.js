@@ -18,7 +18,7 @@ export default function Home() {
   const [content, setContent] = useState(null);
 
   useEffect(() => {
-    fetch('/api/content')
+    fetch('/api/content', { cache: 'no-store' })
       .then((r) => r.json())
       .then(setContent)
       .catch(() => {});

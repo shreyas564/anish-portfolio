@@ -3,6 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import { getPortfolioContent, setPortfolioContent } from '@/lib/redis';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const CONTENT_PATH = path.join(process.cwd(), 'data', 'content.json');
 
 async function getContent() {

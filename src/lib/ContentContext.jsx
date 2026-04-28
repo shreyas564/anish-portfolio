@@ -8,7 +8,7 @@ export function ContentProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/content')
+    fetch('/api/content', { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         setContent(data);
